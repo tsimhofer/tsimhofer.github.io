@@ -53,7 +53,7 @@
         "jobTitle": "Software Engineer",
         "url": "https://tsimhofer.com/",
         "image": "https://tsimhofer.com/portrait.jpg",
-        "email": "mailto:contact@tsimhofer.com",
+        "email": "mailto:thomas.simhofer@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "addressRegion": "Lower Austria",
@@ -366,6 +366,19 @@
       pointer-events: none;
       display: block;
     }
+
+    .vec-mode-btn {
+      opacity: 0.45;
+      transition: all 0.2s ease;
+    }
+    .vec-mode-btn:hover {
+      opacity: 0.85;
+    }
+    .vec-mode-btn.active {
+      opacity: 1;
+      background-color: var(--pill-active-bg);
+      color: var(--pill-active-fg);
+    }
   </style>
 </head>
 <body>
@@ -474,7 +487,7 @@
           </h2>
 
           <p id="welcome-copy" class="font-sans font-medium text-sm sm:text-base lg:text-lg leading-[1.65] theme-subtle max-w-2xl">
-            I'm Thomas Simhofer, a software engineer in Austria. Over the past five years I've worked across industrial .NET applications, full-stack web tools, AI-assisted workflows, and connected hardware prototypes.
+            I'm Thomas Simhofer, a software engineer based in Lower Austria. Professionally, I develop .NET software for industrial machinery—outside of work, I build web applications, custom tools, and hardware projects.
           </p>
 
           <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
@@ -596,7 +609,7 @@
               </span>
             </div>
             <div class="font-sans font-extrabold text-xl sm:text-2xl tracking-[-0.02em] theme-fg break-all">
-              contact@tsimhofer.com
+              thomas.simhofer@gmail.com
             </div>
           </div>
 
@@ -697,8 +710,27 @@
   </div>
 
   <script>
-    let currentTheme = localStorage.getItem('ts_theme') || 'dark';
-    let currentLang = localStorage.getItem('ts_lang') || 'en';
+    function detectSystemTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+      return 'dark';
+    }
+
+    function detectSystemLang() {
+      const langs = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || 'en'];
+      for (const l of langs) {
+        if (typeof l === 'string' && l.toLowerCase().startsWith('de')) {
+          return 'de';
+        }
+      }
+      return 'en';
+    }
+
+    let currentTheme = sessionStorage.getItem('ts_theme_override') || detectSystemTheme();
+    let currentLang = sessionStorage.getItem('ts_lang_override') || detectSystemLang();
     let activeProjectId = null;
     let snapObserver = null;
     let activeShowcaseIdx = 0;
@@ -756,20 +788,20 @@
         navContact: "Contact",
         welcomeKicker: "01 / Welcome",
         welcomeHeadline: "Software, interfaces, and systems—built to be used.",
-        welcomeCopy: "I'm Thomas Simhofer, a software engineer in Austria. Over the past five years I've worked across industrial .NET applications, full-stack web tools, AI-assisted workflows, and connected hardware prototypes.",
+        welcomeCopy: "I'm Thomas Simhofer, a software engineer based in Lower Austria. Professionally, I develop .NET software for industrial machinery—outside of work, I build web applications, custom tools, and hardware projects.",
         pillar1Title: "Desktop & Core",
         pillar2Title: "Web & Data",
         pillar3Title: "Automation",
         showcaseKicker: "02 / Showcase",
-        showcaseTitle: "Selected Work",
-        showcaseHint: "Click any project for details and notes.",
-        cardReadMore: "Details →",
+        showcaseTitle: "Projects & Technical Specs",
+        showcaseHint: "Click any project for the full technical fact sheet.",
+        cardReadMore: "Tech Specs →",
         subpageBack: "Back",
-        subpageRoleLabel: "Focus",
-        subpageStackLabel: "Stack",
-        subpageOverviewTitle: "Overview",
-        subpageTaughtTitle: "Key Notes",
-        subpageTakeawayLabel: "Note",
+        subpageRoleLabel: "Context",
+        subpageStackLabel: "Tech Stack",
+        subpageOverviewTitle: "System Specifications",
+        subpageTaughtTitle: "Technical Breakdown",
+        subpageTakeawayLabel: "Component",
         subpageNextLabel: "Next →",
         contactKicker: "03 / Contact",
         contactHeadline: "Get in touch.",
@@ -785,20 +817,20 @@
         navContact: "Kontakt",
         welcomeKicker: "01 / Willkommen",
         welcomeHeadline: "Software, Interfaces und Systeme – gebaut für den echten Einsatz.",
-        welcomeCopy: "Ich bin Thomas Simhofer, Software-Entwickler aus Österreich. Seit über fünf Jahren entwickle ich industrielle .NET-Anwendungen, Full-Stack-Webtools, KI-gestützte Workflows und Hardware-Prototypen.",
+        welcomeCopy: "Ich bin Thomas Simhofer, Software-Entwickler aus Niederösterreich. Hauptberuflich arbeite ich in der .NET-Entwicklung für den industriellen Maschinenbau – privat baue ich Web-Applikationen, eigene Tools und Hardware-Projekte.",
         pillar1Title: "Desktop & Core",
         pillar2Title: "Web & Daten",
         pillar3Title: "Automation",
         showcaseKicker: "02 / Showcase",
-        showcaseTitle: "Projekte",
-        showcaseHint: "Klicke auf ein Projekt für Details.",
-        cardReadMore: "Details →",
+        showcaseTitle: "Projekte & Eckdaten",
+        showcaseHint: "Klicke auf ein Projekt für das technische Datenblatt.",
+        cardReadMore: "Technik-Details →",
         subpageBack: "Zurück",
-        subpageRoleLabel: "Fokus",
-        subpageStackLabel: "Stack",
-        subpageOverviewTitle: "Überblick",
-        subpageTaughtTitle: "Notizen",
-        subpageTakeawayLabel: "Punkt",
+        subpageRoleLabel: "Kontext",
+        subpageStackLabel: "Tech-Stack",
+        subpageOverviewTitle: "System-Spezifikation",
+        subpageTaughtTitle: "Technische Fakten",
+        subpageTakeawayLabel: "Baustein",
         subpageNextLabel: "Weiter →",
         contactKicker: "03 / Kontakt",
         contactHeadline: "Schreib mir.",
@@ -814,24 +846,30 @@
       {
         id: "industrial-hmi",
         num: "01",
-        stack: [".NET", "C#", "WPF & WinUI 3", "Blazor Hybrid", "MVVM"],
+        stack: [".NET / C#", "WPF", "WinUI 3", "Blazor Hybrid", "Prism / DryIoc", "MVVM"],
         en: {
           domain: ".NET Desktop & Hybrid UI",
           title: "Industrial HMI Applications",
           role: "Professional Work (5+ Years)",
-          summary: "Modular operator interfaces for industrial machines running 24/7.",
-          overview: [
-            "In my day job, I build and maintain .NET control interfaces for industrial machinery. Because these systems run continuously in production, the focus is on clear operator workflows, responsive UI behavior, and clean separation between view logic and machine state.",
-            "Using dependency injection, modular regions, and MVVM allows individual UI modules to be reused across different machine setups while gradually introducing Blazor Hybrid and WinUI 3 alongside existing WPF views."
+          summary: "Modular .NET control and operator interfaces for special-purpose industrial machinery in 24/7 operation.",
+          specs: [
+            { label: "UI Frameworks", value: "WPF, WinUI 3 & Blazor Hybrid" },
+            { label: "Architecture", value: "Modular Regions, MVVM, DryIoc / Prism DI" },
+            { label: "Hardware Layer", value: "Decoupled C# PLC Interfaces & Offline Simulators" },
+            { label: "Concurrency", value: "Background Telemetry Buffering off UI Dispatcher" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Decoupling UI from Machine State",
-              body: "Keeping presentation logic strictly separate from hardware communication makes it possible to test workflows offline and modernize the UI layer step by step."
+              title: "Modular Region Composition",
+              body: "Applications are split into independent functional modules loaded via Dependency Injection (Prism / DryIoc) so machine variants can be configured without duplicating core logic."
             },
             {
-              title: "Predictable Behavior Under Load",
-              body: "Handling asynchronous status updates cleanly off the UI thread keeps the interface responsive even during heavy telemetry or alarm bursts."
+              title: "Hardware Abstraction & Offline Simulation",
+              body: "All machine/PLC communication is encapsulated behind C# interfaces with mock implementations, allowing full workflow and alarm testing on development machines prior to shop-floor commissioning."
+            },
+            {
+              title: "Thread-Isolated Telemetry & Hybrid UI Migration",
+              body: "High-frequency status and alarm streams are buffered and throttled asynchronously off the UI thread. Legacy WPF views are incrementally extended with WinUI 3 and Blazor Hybrid WebViews."
             }
           ]
         },
@@ -839,201 +877,265 @@
           domain: ".NET Desktop & Hybrid UI",
           title: "Industrielle HMI-Anwendungen",
           role: "Berufliche Praxis (5+ Jahre)",
-          summary: "Modulare Bedienoberflächen für Industrieanlagen im 24/7-Betrieb.",
-          overview: [
-            "Hauptberuflich entwickle ich .NET-Bedienoberflächen für den Maschinenbau. Da diese Systeme dauerhaft in der Produktion laufen, zählen vor allem übersichtliche Abläufe, direkte Reaktionszeiten und eine saubere Trennung zwischen Oberfläche und Maschinenstatus.",
-            "Durch Dependency Injection, modulare Regionen und MVVM lassen sich Bausteine für verschiedene Anlagen wiederverwenden und bestehende WPF-Anwendungen schrittweise mit WinUI 3 und Blazor Hybrid erweitern."
+          summary: "Modulare .NET-Bedienoberflächen für den Sondermaschinenbau im 24/7-Produktionsbetrieb.",
+          specs: [
+            { label: "UI-Frameworks", value: "WPF, WinUI 3 & Blazor Hybrid" },
+            { label: "Architektur", value: "Modulare Regionen, MVVM, DryIoc / Prism DI" },
+            { label: "Hardware-Layer", value: "Gekapselte C# SPS-Interfaces & Offline-Mocks" },
+            { label: "Nebenläufigkeit", value: "Asynchrones Telemetrie-Buffering abseits des UI-Threads" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Trennung von UI und Steuerung",
-              body: "Wenn Oberfläche und Hardware-Kommunikation sauber getrennt sind, lassen sich Abläufe vorab am Laptop simulieren und neue UI-Technologien schrittweise einführen."
+              title: "Modularer Aufbau über Regionen & DI",
+              body: "Funktionseinheiten werden als eigenständige Module über Dependency Injection (Prism / DryIoc) geladen, um verschiedene Anlagenkonfigurationen aus derselben Codebasis zu bedienen."
             },
             {
-              title: "Stabilität im Dauerbetrieb",
-              body: "Asynchrone Datenströme außerhalb des UI-Threads zu verarbeiten hält die Bedienung auch bei hoher Datenlast flüssig."
+              title: "Hardware-Abstraktion & Offline-Simulation",
+              body: "Sämtliche Steuerungs- und SPS-Schnittstellen liegen hinter C#-Interfaces mit Simulations-Mocks, sodass Maschinenabläufe und Störfälle vor der echten Inbetriebnahme trocken getestet werden."
+            },
+            {
+              title: "Entkoppelte Telemetrie & Blazor Hybrid Integration",
+              body: "Zyklische Maschinendaten und Alarme werden asynchron gepuffert, um den UI-Dispatcher freizuhalten. Bestehende WPF-Masken werden schrittweise um WinUI 3 und Blazor Hybrid ergänzt."
             }
           ]
         }
       },
       {
-        id: "provisioning-os",
+        id: "nexus",
         num: "02",
-        stack: [".NET 8", "ASP.NET Core", "EF Core", "Blazor", "SQL"],
+        stack: [".NET 10", "ASP.NET Core API", "WPF Tray Agent", "SQLite", "CsvHelper"],
         en: {
-          domain: "Full Stack .NET & Web",
-          title: "Provisioning — Personal Finance & Data Tool",
-          role: "Personal Full-Stack Project",
-          summary: "End-to-end .NET web application for document ingestion, expense tracking, and personal analytics.",
-          overview: [
-            "Built to replace scattered spreadsheets with a single self-hosted tool. Provisioning combines an ASP.NET Core API and relational database with a Blazor web frontend and a small background watcher that imports new statements automatically."
+          domain: ".NET 10 Backend & Desktop Agent",
+          title: "Nexus",
+          role: "Personal .NET Solution",
+          summary: "Automated financial ingestion and analytics system combining a .NET 10 Web API, SQLite store, and a Windows WPF system-tray file watcher.",
+          specs: [
+            { label: "Target Framework", value: ".NET 10 (net10.0 / net10.0-windows)" },
+            { label: "Solution Modules", value: "Nexus.Api, Nexus.Clients.TrayIngest, Finance.Core" },
+            { label: "Storage & Parsing", value: "Microsoft.Data.Sqlite & CsvHelper BankExportReader" },
+            { label: "Background Agent", value: "WPF System-Tray (H.NotifyIcon) + FileSystemWatcher" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Automating the Boring Parts",
-              body: "Watching a local folder and parsing incoming files automatically removes manual data entry so the dashboard stays up to date on its own."
+              title: "Nexus.Clients.TrayIngest (WPF Background Watcher)",
+              body: "Lightweight Windows system-tray application built with H.NotifyIcon.Wpf and FileSystemWatcher (DownloadWatcher.cs) that monitors local download folders and triggers ingestion automatically when bank statements arrive."
             },
             {
-              title: "Shared C# Models Across the Stack",
-              body: "Using one language and shared contracts from the database query up to the Blazor UI keeps refactoring fast and type-safe."
+              title: "Nexus.Modules.Finance.Ingestion",
+              body: "Deterministic CSV/export pipeline (BankExportReader, BankTransactionMap, BankImportService) that normalizes bank exports, deduplicates bookings, and persists records into SqliteTransactionStore."
+            },
+            {
+              title: "Nexus.Api & Categorization Reporting",
+              body: "ASP.NET Core (.NET 10) Web API with OpenAPI endpoints and automated rule-based transaction categorization (CategorizationReport) for recurring vs. variable expense analysis."
             }
           ]
         },
         de: {
-          domain: "Full Stack .NET & Web",
-          title: "Provisioning — Finanz- & Daten-Tool",
-          role: "Eigenes Full-Stack-Projekt",
-          summary: "Durchgängige .NET-Webanwendung für Beleg-Import, Ausgaben-Analyse und persönliche Planung.",
-          overview: [
-            "Entstanden, um verteilte Tabellen durch ein eigenes, selbstgehostetes System zu ersetzen. Das Projekt verbindet eine ASP.NET Core API und eine SQL-Datenbank mit einem Blazor-Frontend sowie einem Hintergrund-Dienst für den automatischen Datei-Import."
+          domain: ".NET 10 Backend & Desktop-Agent",
+          title: "Nexus",
+          role: "Eigenes .NET-Projekt",
+          summary: "Automatisiertes Finanz-Import- und Analysesystem aus .NET 10 Web API, SQLite-Store und einem Windows WPF System-Tray-Watcher.",
+          specs: [
+            { label: "Target Framework", value: ".NET 10 (net10.0 / net10.0-windows)" },
+            { label: "Solution-Module", value: "Nexus.Api, Nexus.Clients.TrayIngest, Finance.Core" },
+            { label: "Persistenz & Parser", value: "Microsoft.Data.Sqlite & CsvHelper BankExportReader" },
+            { label: "Desktop-Agent", value: "WPF System-Tray (H.NotifyIcon) + FileSystemWatcher" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Importe automatisieren",
-              body: "Neue Auszüge werden beim Download automatisch erkannt und eingelesen – dadurch entfällt manuelles Tippen komplett."
+              title: "Nexus.Clients.TrayIngest (WPF System-Tray Watcher)",
+              body: "Schlanker Windows-Hintergrunddienst auf Basis von H.NotifyIcon.Wpf und FileSystemWatcher (DownloadWatcher.cs), der den Download-Ordner überwacht und neue Kontoauszüge automatisch importiert."
             },
             {
-              title: "Durchgängige C#-Modelle",
-              body: "Gemeinsame Datentypen vom Backend bis ins Blazor-UI sparen Boilerplate und verhindern Schnittstellenfehler."
+              title: "Nexus.Modules.Finance.Ingestion",
+              body: "Typisierte Import-Pipeline (BankExportReader, BankTransactionMap, BankImportService) zur Normalisierung, Deduplizierung und Speicherung von Bankbuchungen in einer lokalen SQLite-Datenbank (SqliteTransactionStore)."
+            },
+            {
+              title: "Nexus.Api & Kategorisierungs-Engine",
+              body: "ASP.NET Core (.NET 10) Web API mit OpenAPI-Schnittstelle sowie regelbasierter Auswertung (CategorizationReport) für Fixkosten- und Ausgaben-Analysen."
             }
           ]
         }
       },
       {
-        id: "agentic-automation",
+        id: "thassi",
         num: "03",
-        stack: ["AI Agents", "MCP", "Docker", "n8n", "TypeScript"],
+        stack: ["TypeScript", "Node.js", "Home Assistant OS", "SQLite", "Docker", "TLS-MQTT / FTPS"],
         en: {
-          domain: "Automation & AI Tooling",
-          title: "Agentic Workflows & Self-Hosted Services",
-          role: "Personal Lab & Tooling",
-          summary: "Connecting local services, Docker containers, and custom MCP tools to automate repetitive development and everyday tasks.",
-          overview: [
-            "An ongoing collection of self-hosted services and custom Model Context Protocol (MCP) bridges. Instead of using AI only as a chat window, these tools let agents interact with local APIs, task pipelines, and containerized apps directly."
+          domain: "Home Assistant Hub & Hardware LAN",
+          title: "Thassi",
+          role: "Personal Monorepo & Add-on Ecosystem",
+          summary: "Full-stack TypeScript application hub for Home Assistant with <1s LAN hot-deploy, SQLite persistence, finance sunburst analytics, and direct Bambu Lab P1S LAN control.",
+          specs: [
+            { label: "Host Runtime", value: "Home Assistant Ingress (:8099) & Docker Add-ons" },
+            { label: "Core Services", value: "Shared SQLite (/data), Google OAuth2 Vault, Cron" },
+            { label: "Sub-App 01", value: "thassi.finances (Sparkasse George Import & Sunburst)" },
+            { label: "Sub-App 02", value: "thassi.3dprint (Bambu Lab P1S MQTT :8883 / FTPS :990)" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Clear Interfaces Beat Long Prompts",
-              body: "Giving an agent small, well-defined tools with strict input validation works far more reliably than writing long text instructions."
+              title: "Hybrid Host & Standalone Add-on Exporter",
+              body: "Runs as a central Home Assistant Ingress hub (thassi_host on port 8099) with a <1s LAN hot-deploy endpoint, or exports any app in apps/<id> into its own standalone Docker add-on container via npm run export."
             },
             {
-              title: "Composable Containers",
-              body: "Running services in isolated Docker containers with simple webhook triggers makes it easy to swap or update parts without breaking the rest."
+              title: "thassi.3dprint — Direct Bambu Lab P1S LAN Protocol",
+              body: "Communicates directly with a Bambu Lab P1S on the local subnet without cloud reliance: UDP SSDP discovery (:2021), implicit FTPS (:990) for SD card 3MF/G-Code uploads, and TLS-MQTT (:8883) for live nozzle and bed telemetry."
+            },
+            {
+              title: "thassi.finances — Privacy-Masked Dashboard & George Import",
+              body: "Includes automated Sparkasse George statement categorization, interactive Sunburst budget charts, and a default-masked dashboard widget (hiddenByDefault) for wall-mounted tablets."
             }
           ]
         },
         de: {
-          domain: "Automation & AI Tooling",
-          title: "Agentic Workflows & Self-Hosted Services",
-          role: "Eigenes Lab & Tooling",
-          summary: "Verbindung lokaler Dienste, Docker-Container und eigener MCP-Tools zur Automatisierung von Entwicklungs- und Alltagsaufgaben.",
-          overview: [
-            "Eine Sammlung selbstgehosteter Dienste und eigener Model-Context-Protocol-(MCP)-Schnittstellen. Statt KI nur im Chat zu nutzen, bekommen Agenten hier gezielten Zugriff auf lokale APIs, Workflows und Container."
+          domain: "Home Assistant Hub & Hardware-LAN",
+          title: "Thassi",
+          role: "Eigenes Monorepo & Add-on-System",
+          summary: "Full-Stack TypeScript App-Hub für Home Assistant mit <1s LAN-Hot-Deploy, SQLite-Speicher, Finanz-Sunburst-Analyse und direkter Bambu Lab P1S LAN-Steuerung.",
+          specs: [
+            { label: "Host-Runtime", value: "Home Assistant Ingress (:8099) & Docker Add-ons" },
+            { label: "Core-Services", value: "Shared SQLite (/data), Google OAuth2 Vault, Cron" },
+            { label: "Modul 01", value: "thassi.finances (Sparkasse George Import & Sunburst)" },
+            { label: "Modul 02", value: "thassi.3dprint (Bambu Lab P1S MQTT :8883 / FTPS :990)" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Klare Tools statt langer Prompts",
-              body: "Kleine, strikt validierte Schnittstellen liefern deutlich verlässlichere Ergebnisse als lange Textanweisungen."
+              title: "Hybrid-Host & Standalone Add-on Exporter",
+              body: "Läuft als zentrales Home Assistant Add-on (thassi_host via Ingress :8099) mit <1s LAN-Hot-Deploy-Endpunkt. Jede App unter apps/<id> kann per npm run export auch als eigener Home-Assistant-Container exportiert werden."
             },
             {
-              title: "Modulare Container",
-              body: "Isolierte Docker-Dienste mit einfachen Triggern lassen sich leicht erweitern, ohne bestehende Abläufe zu stören."
+              title: "thassi.3dprint — Direkte Bambu Lab P1S LAN-Anbindung",
+              body: "Lokale Steuerung eines Bambu Lab P1S ohne Cloud-Zwang: Auto-Discovery via UDP SSDP (:2021), direkter SD-Karten-Upload (.3mf/.gcode) über implizites FTPS (:990) und Live-Telemetrie per TLS-MQTT (:8883)."
+            },
+            {
+              title: "thassi.finances — Sparkasse George Analyse & Privacy-Widget",
+              body: "Automatische Kategorisierung österreichischer Bankbuchungen, interaktives Sunburst-Budget-Diagramm und standardmäßig maskierte Dashboard-Kachel (hiddenByDefault) für Wand-Tablets."
             }
           ]
         }
       },
       {
-        id: "ble-wearable-suite",
+        id: "orbitals",
         num: "04",
-        stack: [".NET MAUI", "Android & Wear OS", "BLE", "ESP32 / C++"],
+        stack: [".NET 10 MAUI", "Android", "Wear OS", "UDP LAN Sync", "HLC / CRDT"],
         en: {
-          domain: "Mobile & Hardware Prototyping",
-          title: "BLE Sensor & Wearable App",
-          role: "Hardware & Mobile Prototype",
-          summary: "Cross-platform .NET MAUI app for Android and Wear OS communicating with an ESP32 sensor over Bluetooth Low Energy.",
-          overview: [
-            "A hands-on project connecting custom ESP32 motion hardware with a phone and smartwatch app. Built with .NET MAUI to share core logic while handling real-time Bluetooth Low Energy streams."
+          domain: "Multi-Target .NET 10 & Wear OS",
+          title: "Orbitals",
+          role: "Cross-Platform Desktop, Mobile & Watch Project",
+          summary: "Multi-target .NET 10 application for Windows, Android, and Wear OS (Pixel Watch 2) synchronized peer-to-peer over LAN UDP using Hybrid Logical Clocks.",
+          specs: [
+            { label: "Targets", value: "Windows (net10.0-windows), Android & Wear OS Watch" },
+            { label: "Projects", value: "Orbitals.App, Orbitals.Watch, Orbitals.Core, Tests" },
+            { label: "State Sync", value: "Peer-to-Peer LAN UDP (Ports 45880–45882)" },
+            { label: "Consistency", value: "Hybrid Logical Clock (HlcClock) & AtomicStateStore" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Simulating Hardware First",
-              body: "Mocking the BLE stream in software made it possible to build and test the mobile UI without having the microcontroller powered on every time."
+              title: "3-Target Architecture (PC, Phone & Smartwatch)",
+              body: "Shares a single C# simulation and rendering core (Orbitals.Core) across an unpackaged Windows desktop executable, an Android phone client (Orbitals.App), and a dedicated Wear OS smartwatch target (Orbitals.Watch)."
             },
             {
-              title: "Minimal Watch UI",
-              body: "On a small Wear OS screen, only one primary action and glanceable status actually matter."
+              title: "Serverless UDP LAN Sync & Hybrid Logical Clocks",
+              body: "Synchronizes state directly between devices via LanUdpSyncService and HlcClock without a central server, resolving concurrent offline edits deterministically via AtomicStateStore."
+            },
+            {
+              title: "Triad Workstation Simulator",
+              body: "Includes a developer workstation mode (run-triad-workstation.ps1) that launches PC, Phone, and Pixel Watch 2 nodes side-by-side with live CRDT replication logs and per-node Airplane Mode toggles."
             }
           ]
         },
         de: {
-          domain: "Mobile & Hardware Prototyping",
-          title: "BLE-Sensor & Wearable App",
-          role: "Hardware- & Mobile-Prototyp",
-          summary: ".NET MAUI App für Android und Wear OS, gekoppelt mit einem ESP32-Sensor über Bluetooth Low Energy.",
-          overview: [
-            "Ein praktisches Projekt zur Verbindung eigener ESP32-Sensorhardware mit Smartphone und Smartwatch. Entwickelt mit .NET MAUI, um Kernlogik zu teilen und BLE-Datenströme in Echtzeit darzustellen."
+          domain: "Multi-Target .NET 10 & Wear OS",
+          title: "Orbitals",
+          role: "Cross-Platform Desktop-, Mobile- & Watch-Projekt",
+          summary: "Multi-Target .NET 10 Applikation für Windows, Android und Wear OS (Pixel Watch 2) mit serverloser Peer-to-Peer UDP-Synchronisation und Hybrid Logical Clocks.",
+          specs: [
+            { label: "Plattformen", value: "Windows (net10.0-windows), Android & Wear OS Watch" },
+            { label: "Solution-Aufbau", value: "Orbitals.App, Orbitals.Watch, Orbitals.Core, Tests" },
+            { label: "Netzwerk-Sync", value: "Peer-to-Peer LAN UDP (Ports 45880–45882)" },
+            { label: "Konsistenz", value: "Hybrid Logical Clock (HlcClock) & AtomicStateStore" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Hardware vorab simulieren",
-              body: "Durch einen Software-Mock für den BLE-Stream ließ sich das UI entwickeln und testen, ohne ständig die echte Hardware flashen zu müssen."
+              title: "Gemeinsamer Core für Desktop, Smartphone & Smartwatch",
+              body: "Orbitals.Core kapselt Simulation (PetSimulationEngine, InstancedWorldEngine) und 2D-Canvas-Rendering (OrbitalsSceneRenderer) für Windows-Desktop, Android-Smartphone (Orbitals.App) und Wear OS (Orbitals.Watch)."
             },
             {
-              title: "Reduziertes Watch-UI",
-              body: "Auf dem kleinen Smartwatch-Display zählen nur sofort ablesbare Werte und ein einziger klarer Interaktionsschritt."
+              title: "Serverloser LAN-UDP-Sync mit Hybrid Logical Clocks",
+              body: "Geräte synchronisieren ihren Zustand direkt im lokalen Netz über LanUdpSyncService. Zeitstempel über HlcClock und AtomicStateStore lösen parallele Offline-Änderungen konfliktfrei auf."
+            },
+            {
+              title: "3-Client Triad Workstation für lokale Sync-Tests",
+              body: "Über run-triad-workstation.ps1 starten PC-, Phone- und Pixel-Watch-2-Instanz nebeneinander auf Ports 45880–45882 inklusive Live-CRDT-Log und einzeln schaltbarem Airplane-Mode."
             }
           ]
         }
       },
       {
-        id: "aurelia-web",
+        id: "aurelia",
         num: "05",
-        stack: ["TypeScript", "Vite", "OAuth 2.0", "GitHub Actions"],
+        stack: ["TypeScript", "Vite", "OAuth 2.0 (GIS / PKCE)", "YouTube Data API v3", "IFrame Player API"],
         en: {
-          domain: "Modern Web",
-          title: "Aurelia — Lightweight Web App",
-          role: "Frontend Project",
-          summary: "Fast, client-side TypeScript web application running entirely without a dedicated backend server.",
-          overview: [
-            "Aurelia is a browser-based music quiz app built with TypeScript and Vite. It connects directly to your own streaming library via client-side OAuth and deploys automatically as a static site via GitHub Actions."
+          domain: "Serverless TypeScript Web App",
+          title: "Aurelia",
+          role: "Frontend & Audio-Timing Project",
+          summary: "100% client-side music recognition quiz web application that tests you on your own streaming library using 0.1s–30s audio scrubbing.",
+          specs: [
+            { label: "Build & Runtime", value: "TypeScript, Vite, 100% Client-Side (Zero Backend)" },
+            { label: "Auth Flows", value: "Google Identity Services OAuth 2.0 & Spotify PKCE" },
+            { label: "Audio Engine", value: "Masked YouTube IFrame API + 0.1s–30.0s Scrubber" },
+            { label: "Scoring Model", value: "Logarithmic Curve (10,000 → 3,500 pts, -500 Penalty)" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Zero Server Maintenance",
-              body: "Handling auth and caching directly in the browser removes the need for a backend server or database."
+              title: "Modular MusicProvider Interface (src/providers/types.ts)",
+              body: "Decouples quiz logic from streaming services. YouTubeMusicProvider fetches liked tracks via YouTube Data API v3 (playlistId=LM) using youtube.readonly OAuth tokens and caches catalog metadata in localStorage; SpotifyProvider implements OAuth 2.0 PKCE."
             },
             {
-              title: "Snappy UI Feedback",
-              body: "Keeping bundle size tiny and pre-buffering audio makes interactions feel immediate on both desktop and mobile."
+              title: "Sub-Second Audio Snippet Control",
+              body: "Drives a masked YouTube IFrame Player instance with millisecond timers (seekTo, playVideo, pauseVideo) to play exact snippets starting from 0.1s up to 30.0s."
+            },
+            {
+              title: "Deterministic Scoring & Catalog Autocomplete (src/game/scoring.ts)",
+              body: "Calculates score via a logarithmic decay curve from 10,000 pts at 0.1s down to 3,500 pts at 30.0s (-500 pts per wrong guess) with instant client-side autocomplete against the cached user library."
             }
           ]
         },
         de: {
-          domain: "Modern Web",
-          title: "Aurelia — Leichtgewichtige Web-App",
-          role: "Frontend-Projekt",
-          summary: "Schnelle, rein clientseitige TypeScript-Webanwendung komplett ohne eigenen Backend-Server.",
-          overview: [
-            "Aurelia ist eine browserbasierte Musik-Quiz-App auf Basis von TypeScript und Vite. Sie verbindet sich per Client-Side OAuth direkt mit der eigenen Musikbibliothek und wird vollautomatisch über GitHub Actions ausgeliefert."
+          domain: "Serverlose TypeScript Web-App",
+          title: "Aurelia",
+          role: "Frontend- & Audio-Timing-Projekt",
+          summary: "Rein clientseitige Musik-Quiz-Webanwendung für die eigene Streaming-Library mit 0,1s–30s Audio-Scrubber und logarithmischem Scoring.",
+          specs: [
+            { label: "Build & Runtime", value: "TypeScript, Vite, 100 % Client-Side (Zero Backend)" },
+            { label: "Authentifizierung", value: "Google Identity Services OAuth 2.0 & Spotify PKCE" },
+            { label: "Audio-Engine", value: "Maskierte YouTube IFrame API + 0,1s–30,0s Scrubber" },
+            { label: "Punktesystem", value: "Logarithmische Kurve (10.000 → 3.500 Pkt., -500 Malus)" }
           ],
-          learnings: [
+          facts: [
             {
-              title: "Kein Server-Aufwand",
-              body: "Da Authentifizierung und Caching direkt im Browser laufen, braucht die App weder Backend-Server noch Datenbank."
+              title: "Modulares MusicProvider-Interface (src/providers/types.ts)",
+              body: "Trennt Spiellogik vom Streaming-Dienst: YouTubeMusicProvider lädt Liked-Songs über die YouTube Data API v3 (playlistId=LM) per Client-Side OAuth 2.0 (youtube.readonly) und cached Metadaten im localStorage; SpotifyProvider nutzt OAuth 2.0 mit PKCE."
             },
             {
-              title: "Direktes Feedback",
-              body: "Schlanker Code und vorgeladene Audio-Snippets sorgen für unmittelbare Reaktionen am Desktop und Smartphone."
+              title: "Millisekunden-genaues Snippet-Timing",
+              body: "Steuert eine maskierte YouTube-IFrame-Player-Instanz über präzise Timer (seekTo, playVideo, pauseVideo) für frei wählbare Audio-Ausschnitte zwischen 0,1 s und 30,0 s."
+            },
+            {
+              title: "Logarithmische Punkteberechnung & Autocomplete (src/game/scoring.ts)",
+              body: "Berechnet Punkte entlang einer logarithmischen Kurve von 10.000 Pkt. bei 0,1 s bis 3.500 Pkt. bei 30,0 s (-500 Pkt. pro Fehlversuch) inklusive Echtzeit-Autocomplete über den lokalen Song-Katalog."
             }
           ]
         }
       }
     ];
 
-    function applyTheme(theme) {
+    function applyTheme(theme, isManual = false) {
       currentTheme = theme;
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('ts_theme', theme);
+      if (isManual) {
+        sessionStorage.setItem('ts_theme_override', theme);
+      }
 
       const sunIcon = document.getElementById('icon-sun');
       const moonIcon = document.getElementById('icon-moon');
@@ -1049,12 +1151,14 @@
     }
 
     function toggleTheme() {
-      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark', true);
     }
 
-    function setLanguage(lang) {
+    function setLanguage(lang, isManual = true) {
       currentLang = lang;
-      localStorage.setItem('ts_lang', lang);
+      if (isManual) {
+        sessionStorage.setItem('ts_lang_override', lang);
+      }
       document.documentElement.setAttribute('lang', lang);
 
       const btnEn = document.getElementById('btn-lang-en');
@@ -1117,7 +1221,6 @@
 
       slidesContainer.innerHTML = projects.map((proj, idx) => {
         const loc = proj[currentLang];
-        const firstLearning = loc.learnings[0];
         return `
           <div
             id="project-slide-${idx}"
@@ -1135,34 +1238,38 @@
               role="button"
               tabindex="0"
               onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectSubpage('${proj.id}');}"
-              class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full"
+              class="theme-card-interactive rounded-3xl p-7 sm:p-9 lg:p-11 cursor-pointer flex flex-col justify-between group w-full"
             >
               <div>
-                <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+                <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-3">
                   <span>${proj.num} — ${loc.domain}</span>
                   <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
                 </div>
 
-                <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">
+                <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-3">
                   ${loc.title}
                 </h3>
 
-                <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">
+                <p class="font-sans font-medium text-sm sm:text-base theme-subtle leading-relaxed mb-5">
                   ${loc.summary}
                 </p>
 
-                <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
-                  <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">
-                    ${firstLearning.title}
-                  </div>
-                  <div class="font-sans font-normal text-xs sm:text-sm theme-subtle">
-                    ${firstLearning.body}
-                  </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6">
+                  ${loc.specs.map(spec => `
+                    <div class="theme-card-inner rounded-xl px-4 py-3">
+                      <div class="font-mono font-bold text-[10px] uppercase tracking-[0.14em] theme-muted mb-0.5">
+                        ${spec.label}
+                      </div>
+                      <div class="font-sans font-bold text-xs sm:text-sm theme-fg leading-snug">
+                        ${spec.value}
+                      </div>
+                    </div>
+                  `).join('')}
                 </div>
               </div>
 
-              <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
-                <div class="flex flex-wrap gap-2">
+              <div class="pt-1 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   ${proj.stack.map(tag => `
                     <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">
                       ${tag}
@@ -1229,13 +1336,16 @@
       if (!body) return;
 
       body.innerHTML = `
-        <div class="mb-12 sm:mb-14">
+        <div class="mb-10 sm:mb-12">
           <div class="font-mono font-bold text-xs uppercase tracking-[0.18em] theme-muted mb-3">
             ${proj.num} / ${loc.domain}
           </div>
-          <h1 class="font-sans font-extrabold text-3xl sm:text-5xl tracking-[-0.035em] leading-[1.06] theme-fg mb-8">
+          <h1 class="font-sans font-extrabold text-3xl sm:text-5xl tracking-[-0.035em] leading-[1.06] theme-fg mb-4">
             ${loc.title}
           </h1>
+          <p class="font-sans font-medium text-base sm:text-lg theme-subtle max-w-3xl mb-8">
+            ${loc.summary}
+          </p>
 
           <div class="grid grid-cols-12 gap-6 theme-card rounded-2xl p-6 sm:p-8">
             <div class="col-span-12 sm:col-span-4">
@@ -1251,14 +1361,23 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-y-6 lg:gap-x-12 mb-14 sm:mb-16">
+        <div class="grid grid-cols-12 gap-y-6 lg:gap-x-12 mb-12 sm:mb-14">
           <div class="col-span-12 lg:col-span-4">
             <h2 class="font-sans font-extrabold text-xl sm:text-2xl tracking-[-0.02em] theme-fg">
               ${t.subpageOverviewTitle}
             </h2>
           </div>
-          <div class="col-span-12 lg:col-span-8 space-y-4 font-sans font-medium text-base sm:text-lg leading-[1.7] theme-subtle">
-            ${loc.overview.map(p => `<p>${p}</p>`).join('')}
+          <div class="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            ${loc.specs.map(spec => `
+              <div class="theme-card rounded-2xl p-5">
+                <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">
+                  ${spec.label}
+                </div>
+                <div class="font-sans font-extrabold text-sm sm:text-base theme-fg">
+                  ${spec.value}
+                </div>
+              </div>
+            `).join('')}
           </div>
         </div>
 
@@ -1268,16 +1387,16 @@
               ${t.subpageTaughtTitle}
             </h2>
           </div>
-          <div class="col-span-12 lg:col-span-8 space-y-4">
-            ${loc.learnings.map((item, lIdx) => `
+          <div class="col-span-12 lg:col-span-8 space-y-3.5">
+            ${loc.facts.map((item, lIdx) => `
               <div class="theme-card rounded-2xl p-6 sm:p-7">
-                <div class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-1.5">
+                <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">
                   ${t.subpageTakeawayLabel} 0${lIdx + 1}
                 </div>
-                <h3 class="font-sans font-extrabold text-lg sm:text-xl tracking-[-0.02em] theme-fg mb-2">
+                <h3 class="font-sans font-extrabold text-base sm:text-lg tracking-[-0.015em] theme-fg mb-1.5">
                   ${item.title}
                 </h3>
-                <p class="font-sans font-normal text-sm sm:text-base leading-[1.65] theme-subtle">
+                <p class="font-sans font-normal text-sm sm:text-base leading-[1.6] theme-subtle">
                   ${item.body}
                 </p>
               </div>
@@ -1396,7 +1515,7 @@
 
     function copyEmailToClipboard() {
       const temp = document.createElement('textarea');
-      temp.value = 'contact@tsimhofer.com';
+      temp.value = 'thomas.simhofer@gmail.com';
       document.body.appendChild(temp);
       temp.select();
       document.execCommand('copy');
@@ -1423,7 +1542,7 @@
           <h3 class="font-sans font-extrabold text-2xl sm:text-3xl theme-fg">Impressum (§ 5 ECG)</h3>
           <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Name:</strong> Thomas Simhofer</p>
           <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Location:</strong> 3161 St. Veit an der Gölsen, Lower Austria, Austria</p>
-          <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Email:</strong> contact@tsimhofer.com</p>
+          <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Email:</strong> thomas.simhofer@gmail.com</p>
           <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Purpose:</strong> Personal software engineering portfolio.</p>
         `;
       } else {
@@ -1457,44 +1576,138 @@
       let height = 0;
       let dpr = 1;
 
-      let count = 0;
-      let posX = new Float32Array(0);
-      let posY = new Float32Array(0);
-      let dirX = new Float32Array(0);
-      let dirY = new Float32Array(0);
-      let dirZ = new Float32Array(0);
-      let velX = new Float32Array(0);
-      let velY = new Float32Array(0);
-      let velZ = new Float32Array(0);
-      let phase = new Float32Array(0);
-      let weight = new Float32Array(0);
-
-      let rawMouseX = window.innerWidth * 0.64;
-      let rawMouseY = window.innerHeight * 0.44;
+      let rawMouseX = window.innerWidth * 0.62;
+      let rawMouseY = window.innerHeight * 0.45;
       let cursorX = rawMouseX;
       let cursorY = rawMouseY;
       let lastMouseMoveTime = 0;
 
-      function createPRNG(seed) {
-        let a = seed >>> 0;
-        return function () {
-          a |= 0;
-          a = (a + 0x6D2B79F5) | 0;
-          let t = Math.imul(a ^ (a >>> 15), 1 | a);
-          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-        };
+      function rotate3D(x, y, z, rx, ry, rz) {
+        const cosX = Math.cos(rx), sinX = Math.sin(rx);
+        const y1 = y * cosX - z * sinX;
+        const z1 = y * sinX + z * cosX;
+
+        const cosY = Math.cos(ry), sinY = Math.sin(ry);
+        const x2 = x * cosY + z1 * sinY;
+        const z2 = -x * sinY + z1 * cosY;
+
+        const cosZ = Math.cos(rz), sinZ = Math.sin(rz);
+        const x3 = x2 * cosZ - y1 * sinZ;
+        const y3 = x2 * sinZ + y1 * cosZ;
+        return { x: x3, y: y3, z: z2 };
       }
 
-      function organicWave(nx, ny) {
-        const n1 = Math.sin(nx * 3.8 + Math.cos(ny * 3.2) * 1.4);
-        const n2 = Math.cos(ny * 3.5 - Math.sin(nx * 2.9) * 1.3);
-        return (n1 + n2) * 0.5;
+      // Build 3D Polyhedra with exact face centroids & outward unit normals
+      function buildGeometries() {
+        const phi = (1 + Math.sqrt(5)) / 2;
+
+        function makeFace(verts, indices) {
+          let cx = 0, cy = 0, cz = 0;
+          for (let i = 0; i < indices.length; i++) {
+            const v = verts[indices[i]];
+            cx += v[0];
+            cy += v[1];
+            cz += v[2];
+          }
+          cx /= indices.length;
+          cy /= indices.length;
+          cz /= indices.length;
+          const nl = Math.hypot(cx, cy, cz) || 1;
+          return {
+            indices,
+            cx, cy, cz,
+            nx: cx / nl,
+            ny: cy / nl,
+            nz: cz / nl
+          };
+        }
+
+        function extractEdgesAndTriFaces(verts, edgeThresh, triThresh) {
+          const edges = [];
+          const faces = [];
+          for (let i = 0; i < verts.length; i++) {
+            for (let j = i + 1; j < verts.length; j++) {
+              const dij = Math.hypot(verts[i][0] - verts[j][0], verts[i][1] - verts[j][1], verts[i][2] - verts[j][2]);
+              if (dij < edgeThresh) {
+                edges.push([i, j]);
+                if (triThresh) {
+                  for (let k = j + 1; k < verts.length; k++) {
+                    const dik = Math.hypot(verts[i][0] - verts[k][0], verts[i][1] - verts[k][1], verts[i][2] - verts[k][2]);
+                    const djk = Math.hypot(verts[j][0] - verts[k][0], verts[j][1] - verts[k][1], verts[j][2] - verts[k][2]);
+                    if (dik < triThresh && djk < triThresh) {
+                      faces.push(makeFace(verts, [i, j, k]));
+                    }
+                  }
+                }
+              }
+            }
+          }
+          return { verts, edges, faces };
+        }
+
+        // 1. Icosahedron (12 verts, 30 edges, 20 triangular plates)
+        const icoVerts = [
+          [-1,  phi, 0], [ 1,  phi, 0], [-1, -phi, 0], [ 1, -phi, 0],
+          [ 0, -1,  phi], [ 0,  1,  phi], [ 0, -1, -phi], [ 0,  1, -phi],
+          [ phi, 0, -1], [ phi, 0,  1], [-phi, 0, -1], [-phi, 0,  1]
+        ].map(v => {
+          const l = Math.hypot(v[0], v[1], v[2]);
+          return [v[0] / l, v[1] / l, v[2] / l];
+        });
+        const icosa = extractEdgesAndTriFaces(icoVerts, 1.15, 1.15);
+
+        // 2. Octahedron (6 verts, 12 edges, 8 triangular plates)
+        const octVerts = [
+          [1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]
+        ];
+        const octa = extractEdgesAndTriFaces(octVerts, 1.48, 1.48);
+
+        // 3. Cuboctahedron (12 verts, 24 edges, 8 triangular plates + 6 square plates)
+        const cubVerts = [
+          [ 1, 1, 0], [ 1,-1, 0], [-1, 1, 0], [-1,-1, 0],
+          [ 1, 0, 1], [ 1, 0,-1], [-1, 0, 1], [-1, 0,-1],
+          [ 0, 1, 1], [ 0, 1,-1], [ 0,-1, 1], [ 0,-1,-1]
+        ].map(v => {
+          const l = Math.hypot(v[0], v[1], v[2]);
+          return [v[0] / l, v[1] / l, v[2] / l];
+        });
+        const cubocta = extractEdgesAndTriFaces(cubVerts, 1.08, 1.08);
+
+        // 4. Hexagonal Architectural Prism (12 verts, 18 edges, 6 side plates)
+        const hexVerts = [];
+        const hexEdges = [];
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * Math.PI * 2;
+          hexVerts.push([Math.cos(a) * 0.86, -0.62, Math.sin(a) * 0.86]);
+          hexVerts.push([Math.cos(a) * 0.86,  0.62, Math.sin(a) * 0.86]);
+          const b = i * 2;
+          const next = ((i + 1) % 6) * 2;
+          hexEdges.push([b, next], [b + 1, next + 1], [b, b + 1]);
+        }
+        const hexFacesClean = [];
+        for (let i = 0; i < 6; i++) {
+          const b = i * 2;
+          const next = ((i + 1) % 6) * 2;
+          hexFacesClean.push(makeFace(hexVerts, [b, next, next + 1, b + 1]));
+        }
+        const hexPrism = { verts: hexVerts, edges: hexEdges, faces: hexFacesClean };
+
+        return { icosa, octa, cubocta, hexPrism };
       }
 
-      function isValidPoint(px, py) {
-        return px >= 14 && px <= width - 14 && py >= 14 && py <= height - 14;
-      }
+      const geom = buildGeometries();
+
+      // Frame-breaking Exploded Polyhedra composition ("spreng den Rahmen der Seite")
+      const explodedSolids = [
+        // 1. Colossal Primary Hero Assembly (sweeps past right & top/bottom viewport edges)
+        { g: geom.icosa,    nx: 0.73, ny: 0.47, radius: 335, sx:  0.0675, sy:  0.0945, sz:  0.0405, primary: true,  innerG: geom.octa },
+        // 2. Top-Left Frame-Breaker (anchored on top-left corner, bleeding outside viewport)
+        { g: geom.cubocta,  nx: 0.05, ny: 0.08, radius: 235, sx: -0.0765, sy:  0.0630, sz:  0.0495, primary: false, innerG: null },
+        // 3. Bottom-Right Frame-Breaker (bleeding past bottom-right corner)
+        { g: geom.hexPrism, nx: 0.96, ny: 0.92, radius: 220, sx:  0.0585, sy: -0.0855, sz:  0.0630, primary: false, innerG: null },
+        // 4. Lower-Left Architectural Counterweight (partially bleeding below bottom frame)
+        { g: geom.octa,     nx: 0.33, ny: 0.91, radius: 150, sx:  0.0855, sy:  0.0675, sz: -0.0540, primary: false, innerG: null }
+      ];
 
       function rebuildGrid() {
         width = window.innerWidth;
@@ -1504,60 +1717,6 @@
         canvas.width = Math.floor(width * dpr);
         canvas.height = Math.floor(height * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-        const tempX = [];
-        const tempY = [];
-        const tempW = [];
-        const rand = createPRNG(90210);
-
-        const spacing = width < 768 ? 32 : 25;
-        const rowH = spacing * Math.sqrt(3) * 0.5;
-        const rows = Math.ceil(height / rowH) + 1;
-        const cols = Math.ceil(width / spacing) + 1;
-
-        for (let r = 0; r < rows; r++) {
-          const pyBase = r * rowH;
-          const xOffset = (r % 2) * (spacing * 0.5);
-          for (let c = 0; c < cols; c++) {
-            const pxBase = c * spacing + xOffset;
-            const px = pxBase + (rand() - 0.5) * 2.2;
-            const py = pyBase + (rand() - 0.5) * 2.2;
-            if (!isValidPoint(px, py)) continue;
-
-            const nx = px / width;
-            const ny = py / height;
-            const field = organicWave(nx * 2.2, ny * 2.2);
-            const distFromVein = Math.abs(field);
-            if (distFromVein > 0.14) {
-              const w = Math.max(0.36, Math.min(1.0, 0.38 + distFromVein * 0.85));
-              tempX.push(px);
-              tempY.push(py);
-              tempW.push(w);
-            }
-          }
-        }
-
-        count = tempX.length;
-        posX = new Float32Array(count);
-        posY = new Float32Array(count);
-        dirX = new Float32Array(count);
-        dirY = new Float32Array(count);
-        dirZ = new Float32Array(count);
-        velX = new Float32Array(count);
-        velY = new Float32Array(count);
-        velZ = new Float32Array(count);
-        phase = new Float32Array(count);
-        weight = new Float32Array(count);
-
-        for (let i = 0; i < count; i++) {
-          posX[i] = tempX[i];
-          posY[i] = tempY[i];
-          dirX[i] = 0;
-          dirY[i] = 0;
-          dirZ[i] = 1;
-          phase[i] = tempX[i] * 0.005 + tempY[i] * 0.005;
-          weight[i] = tempW[i];
-        }
       }
 
       window.addEventListener('resize', rebuildGrid, { passive: true });
@@ -1573,122 +1732,169 @@
         const t = now * 0.001;
         const isDark = currentTheme === 'dark';
 
-        const idleBlend = Math.min(1, Math.max(0, (now - lastMouseMoveTime - 2500) / 3500));
-        const idleTargetX = width * (0.60 + 0.20 * Math.cos(t * 0.34));
-        const idleTargetY = height * (0.45 + 0.18 * Math.sin(t * 0.46));
+        const idleBlend = Math.min(1, Math.max(0, (now - lastMouseMoveTime - 2400) / 3800));
+        const idleTargetX = width * (0.62 + 0.18 * Math.cos(t * 0.18));
+        const idleTargetY = height * (0.46 + 0.14 * Math.sin(t * 0.234));
 
         const targetX = rawMouseX * (1 - idleBlend) + idleTargetX * idleBlend;
         const targetY = rawMouseY * (1 - idleBlend) + idleTargetY * idleBlend;
 
-        cursorX += (targetX - cursorX) * 0.105;
-        cursorY += (targetY - cursorY) * 0.105;
-
-        const cursorZ = 145;
-        const cursorZSq = cursorZ * cursorZ;
+        cursorX += (targetX - cursorX) * 0.048;
+        cursorY += (targetY - cursorY) * 0.048;
 
         ctx.clearRect(0, 0, width, height);
+        ctx.globalAlpha = 0.56;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
-        const baseMonoRGB = isDark ? '245, 245, 247' : '12, 12, 16';
+        // Pure achromatic white/grey scale (zero color tint)
+        const monoR = isDark ? 208 : 64;
+        const monoG = isDark ? 208 : 64;
+        const monoB = isDark ? 212 : 68;
 
-        for (let i = 0; i < count; i++) {
-          const x = posX[i];
-          const y = posY[i];
-          const ph = phase[i];
-          const w = weight[i];
+        const warmR = isDark ? 255 : 10;
+        const warmG = isDark ? 255 : 10;
+        const warmB = isDark ? 255 : 12;
 
-          const dx = cursorX - x;
-          const dy = cursorY - y;
-          const dist2D_Sq = dx * dx + dy * dy;
-          const dist3D = Math.sqrt(dist2D_Sq + cursorZSq);
-          const invDist3D = 1 / dist3D;
+        const normMX = (cursorX / Math.max(1, width)) - 0.5;
+        const normMY = (cursorY / Math.max(1, height)) - 0.5;
+        const maxDim = Math.max(width, height);
+        const scaleFactor = Math.max(0.72, maxDim / 1520);
+        const fov = 920;
 
-          const waveX = Math.cos(t * 0.68 + ph) * 0.20;
-          const waveY = Math.sin(t * 0.56 + ph * 1.15) * 0.20;
+        explodedSolids.forEach((solid, sIdx) => {
+          const cx = width * solid.nx + normMX * (solid.primary ? 44 : -27 * (sIdx % 2 === 0 ? 1 : -1));
+          const cy = height * solid.ny + Math.sin(t * 0.315 + sIdx * 1.6) * 14 + normMY * 34;
+          const r = solid.radius * scaleFactor;
 
-          const prox = Math.exp(-dist2D_Sq * 0.0000048);
-          const pullWeight = 0.28 + 0.72 * prox;
+          const dx = cursorX - cx;
+          const dy = cursorY - cy;
+          const prox = Math.exp(-(dx * dx + dy * dy) * 0.0000020);
 
-          let tx = (dx * invDist3D) * pullWeight + waveX * (1 - prox * 0.65);
-          let ty = (dy * invDist3D) * pullWeight + waveY * (1 - prox * 0.65);
-          let tz = (cursorZ * invDist3D) * (0.58 + 0.42 * (1 - prox));
-          const invT = 1 / Math.sqrt(tx * tx + ty * ty + tz * tz);
-          tx *= invT;
-          ty *= invT;
-          tz *= invT;
+          const rx = t * solid.sx + normMY * 0.58 + sIdx * 0.8;
+          const ry = t * solid.sy + normMX * 0.58 + sIdx * 1.2;
+          const rz = t * solid.sz;
 
-          const stiffness = (0.013 + 0.036 * prox) * (0.75 + 0.25 * w);
-          const damping = 0.88 - 0.04 * prox;
+          // 1. Inner un-exploded wireframe skeleton core
+          const coreR = r * 0.54;
+          const coreProj = solid.g.verts.map(v => {
+            const p = rotate3D(v[0] * coreR, v[1] * coreR, v[2] * coreR, rx, ry, rz);
+            const s = fov / (fov + p.z + 340);
+            return { x: cx + p.x * s, y: cy + p.y * s, z: p.z };
+          });
 
-          let vx = (velX[i] + (tx - dirX[i]) * stiffness) * damping;
-          let vy = (velY[i] + (ty - dirY[i]) * stiffness) * damping;
-          let vz = (velZ[i] + (tz - dirZ[i]) * stiffness) * damping;
+          ctx.strokeStyle = `rgba(${monoR}, ${monoG}, ${monoB}, ${(isDark ? 0.11 : 0.14).toFixed(3)})`;
+          ctx.lineWidth = 0.85;
+          ctx.beginPath();
+          solid.g.edges.forEach(e => {
+            const v0 = coreProj[e[0]];
+            const v1 = coreProj[e[1]];
+            ctx.moveTo(v0.x, v0.y);
+            ctx.lineTo(v1.x, v1.y);
+          });
+          ctx.stroke();
 
-          let nx = dirX[i] + vx;
-          let ny = dirY[i] + vy;
-          let nz = dirZ[i] + vz;
-          const invN = 1 / Math.sqrt(nx * nx + ny * ny + nz * nz);
-          nx *= invN;
-          ny *= invN;
-          nz *= invN;
-
-          dirX[i] = nx;
-          dirY[i] = ny;
-          dirZ[i] = nz;
-          velX[i] = vx;
-          velY[i] = vy;
-          velZ[i] = vz;
-
-          const tiltMag = Math.sqrt(nx * nx + ny * ny);
-          const invTilt = tiltMag > 0.0001 ? 1 / tiltMag : 0;
-          const ux = tiltMag > 0.0001 ? nx * invTilt : 1;
-          const uy = tiltMag > 0.0001 ? ny * invTilt : 0;
-          const rx = -uy;
-          const ry = ux;
-
-          const scale = 0.66 + 0.34 * w;
-          const len = 7.2 * scale;
-          const halfW = 1.48 * scale * (0.36 + 0.64 * nz);
-
-          const lightAlign = Math.max(0, nx * (dx * invDist3D) + ny * (dy * invDist3D) + nz * (cursorZ * invDist3D));
-          const specPower = Math.pow(lightAlign, 8);
-          const illum = prox * (0.28 * lightAlign + 0.72 * specPower) * (0.45 + 0.55 * w);
-
-          const tipX = x + nx * len;
-          const tipY = y + ny * len;
-          const tailX = x - nx * (len * 0.45);
-          const tailY = y - ny * (len * 0.45);
-
-          if (illum > 0.02) {
-            const r = isDark ? Math.round(182 + 68 * specPower) : Math.round(58 - 38 * specPower);
-            const g = isDark ? Math.round(174 + 68 * specPower) : Math.round(52 - 32 * specPower);
-            const b = isDark ? Math.round(160 + 72 * specPower) : Math.round(46 - 26 * specPower);
-            const strokeAlpha = Math.min(0.32, (isDark ? 0.036 : 0.048) * w + illum * 0.28);
-            const fillAlpha = Math.min(0.085, illum * 0.075);
-
-            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${fillAlpha.toFixed(3)})`;
-            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${strokeAlpha.toFixed(3)})`;
-            ctx.lineWidth = 0.68;
-
+          // Optional counter-rotating inner core on the primary hero assembly
+          if (solid.innerG) {
+            const innerCoreR = r * 0.28;
+            const innerProj = solid.innerG.verts.map(v => {
+              const p = rotate3D(v[0] * innerCoreR, v[1] * innerCoreR, v[2] * innerCoreR, -rx * 1.4, -ry * 1.3, -rz);
+              const s = fov / (fov + p.z + 340);
+              return { x: cx + p.x * s, y: cy + p.y * s };
+            });
+            ctx.strokeStyle = `rgba(${warmR}, ${warmG}, ${warmB}, ${(isDark ? 0.19 : 0.24).toFixed(3)})`;
+            ctx.lineWidth = 0.95;
             ctx.beginPath();
-            ctx.moveTo(tipX, tipY);
-            ctx.lineTo(x + rx * halfW, y + ry * halfW);
-            ctx.lineTo(tailX, tailY);
-            ctx.lineTo(x - rx * halfW, y - ry * halfW);
-            ctx.closePath();
-            ctx.fill();
-            ctx.stroke();
-          } else {
-            const restAlpha = (isDark ? 0.035 : 0.046) * w;
-            ctx.strokeStyle = `rgba(${baseMonoRGB}, ${restAlpha.toFixed(3)})`;
-            ctx.lineWidth = 0.60;
-            ctx.beginPath();
-            ctx.moveTo(tailX, tailY);
-            ctx.lineTo(tipX, tipY);
+            solid.innerG.edges.forEach(e => {
+              ctx.moveTo(innerProj[e[0]].x, innerProj[e[0]].y);
+              ctx.lineTo(innerProj[e[1]].x, innerProj[e[1]].y);
+            });
             ctx.stroke();
           }
-        }
+
+          // 2. Uniform, coherent radial explosion offset (no per-face wobble -> zero Z-order swaps!)
+          const breath = 0.5 + 0.5 * Math.sin(t * 0.405 + sIdx * 1.3);
+          const explodeDist = r * (0.20 + breath * 0.14 + prox * 0.32);
+          const plateScale = 0.84;
+
+          // Compute exact 3D coordinates & continuous lighting for each panel
+          const renderedFaces = solid.g.faces.map(f => {
+            const rotN = rotate3D(f.nx, f.ny, f.nz, rx, ry, rz);
+
+            // Inner anchor point on core & outer exploded centroid for trajectory guide line
+            const cIn3D = rotate3D(f.cx * coreR, f.cy * coreR, f.cz * coreR, rx, ry, rz);
+            const sIn = fov / (fov + cIn3D.z + 340);
+            const cOutX = f.cx * r + f.nx * explodeDist;
+            const cOutY = f.cy * r + f.ny * explodeDist;
+            const cOutZ = f.cz * r + f.nz * explodeDist;
+            const cOut3D = rotate3D(cOutX, cOutY, cOutZ, rx, ry, rz);
+            const sOut = fov / (fov + cOut3D.z + 340);
+
+            const pts = f.indices.map(vIdx => {
+              const v = solid.g.verts[vIdx];
+              const vx = (f.cx + (v[0] - f.cx) * plateScale) * r + f.nx * explodeDist;
+              const vy = (f.cy + (v[1] - f.cy) * plateScale) * r + f.ny * explodeDist;
+              const vz = (f.cz + (v[2] - f.cz) * plateScale) * r + f.nz * explodeDist;
+
+              const p = rotate3D(vx, vy, vz, rx, ry, rz);
+              const s = fov / (fov + p.z + 340);
+              return { x: cx + p.x * s, y: cy + p.y * s, z: p.z };
+            });
+
+            return {
+              pts,
+              nz: rotN.z,
+              cz: cOut3D.z,
+              guideX0: cx + cIn3D.x * sIn,
+              guideY0: cy + cIn3D.y * sIn,
+              guideX1: cx + cOut3D.x * sOut,
+              guideY1: cy + cOut3D.y * sOut
+            };
+          }).sort((a, b) => b.cz - a.cz); // True 3D centroid depth sort (back-to-front)
+
+          renderedFaces.forEach(rf => {
+            // Smooth C1-continuous facing factor in [0, 1] — completely eliminates panel flicker
+            const rawFacing = Math.max(0, Math.min(1, (-rf.nz + 0.42) / 1.32));
+            const facing = rawFacing * rawFacing * (3 - 2 * rawFacing);
+
+            const colorMix = facing * (solid.primary ? 0.55 : (0.22 + prox * 0.45));
+            const cr = Math.round(monoR + (warmR - monoR) * colorMix);
+            const cg = Math.round(monoG + (warmG - monoG) * colorMix);
+            const cb = Math.round(monoB + (warmB - monoB) * colorMix);
+
+            // Radial CAD trajectory guide line from inner skeleton to floating plate
+            const guideAlpha = 0.03 + facing * (0.09 + prox * 0.08);
+            ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${guideAlpha.toFixed(3)})`;
+            ctx.lineWidth = 0.68;
+            ctx.beginPath();
+            ctx.moveTo(rf.guideX0, rf.guideY0);
+            ctx.lineTo(rf.guideX1, rf.guideY1);
+            ctx.stroke();
+
+            // Smoothly interpolated fill & stroke for the exploded polygon panel
+            const baseStroke = solid.primary ? 0.10 : 0.08;
+            const activeStroke = solid.primary ? 0.30 : 0.23;
+            const strokeAlpha = baseStroke + facing * (activeStroke + prox * 0.17);
+
+            const baseFill = 0.005;
+            const activeFill = solid.primary ? 0.034 : 0.024;
+            const fillAlpha = baseFill + facing * (activeFill + prox * 0.037);
+
+            ctx.beginPath();
+            rf.pts.forEach((pt, idx) => {
+              if (idx === 0) ctx.moveTo(pt.x, pt.y);
+              else ctx.lineTo(pt.x, pt.y);
+            });
+            ctx.closePath();
+
+            ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${fillAlpha.toFixed(3)})`;
+            ctx.fill();
+
+            ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${strokeAlpha.toFixed(3)})`;
+            ctx.lineWidth = 0.68 + facing * ((solid.primary ? 0.72 : 0.50) + prox * 0.22);
+            ctx.stroke();
+          });
+        });
 
         requestAnimationFrame(renderFrame);
       }
@@ -1704,18 +1910,32 @@
     });
 
     function initPortfolioApp() {
-      applyTheme(currentTheme);
-      setLanguage(currentLang);
+      applyTheme(currentTheme, false);
+      setLanguage(currentLang, false);
       initSnapObserver();
       startKeywordFlipper();
       initVectorField();
+
+      if (window.matchMedia) {
+        const schemeMq = window.matchMedia('(prefers-color-scheme: light)');
+        const onSchemeChange = (e) => {
+          if (!sessionStorage.getItem('ts_theme_override')) {
+            applyTheme(e.matches ? 'light' : 'dark', false);
+          }
+        };
+        if (typeof schemeMq.addEventListener === 'function') {
+          schemeMq.addEventListener('change', onSchemeChange);
+        }
+      }
+
+      window.addEventListener('languagechange', () => {
+        if (!sessionStorage.getItem('ts_lang_override')) {
+          setLanguage(detectSystemLang(), false);
+        }
+      });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initPortfolioApp);
-    } else {
-      initPortfolioApp();
-    }
+    initPortfolioApp();
   </script>
 </body>
 </html>
