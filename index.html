@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Thomas Simhofer (tsimhofer) — Software Engineering &amp; .NET Systems Architecture</title>
+ <meta name="description" content="Thomas Simhofer (tsimhofer) — Software Engineer &amp; Systems Architect based in Austria specializing in .NET 8, C#, Blazor, Full Stack Web, Industrial HMI, and Agentic Engineering." />
+ <meta name="keywords" content="Thomas Simhofer, tsimhofer, Software Engineer Austria, .NET Architect, C#, .NET 8, Blazor, Full Stack Developer, Systems Architecture, Agentic Engineering, Industrial HMI, WPF, WinUI 3, MAUI, TU Wien" />
+ <meta name="author" content="Thomas Simhofer" />
+ <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+ <meta name="theme-color" content="#070707" />
+ <meta name="color-scheme" content="dark light" />
+ <meta name="geo.region" content="AT-3" />
+ <meta name="geo.placename" content="Lower Austria, Austria" />
+ <link rel="canonical" href="https://tsimhofer.com/" />
+ <link rel="alternate" hreflang="en" href="https://tsimhofer.com/" />
+ <link rel="alternate" hreflang="de" href="https://tsimhofer.com/" />
+ <link rel="alternate" hreflang="x-default" href="https://tsimhofer.com/" />
+ <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070707'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23f5f5f7' font-family='sans-serif' font-weight='800' font-size='28' letter-spacing='-1.5'%3Ets%3C/text%3E%3C/svg%3E" />
+ <meta property="og:type" content="profile" />
+ <meta property="og:site_name" content="tsimhofer — Thomas Simhofer" />
+ <meta property="og:url" content="https://tsimhofer.com/" />
+ <meta property="og:title" content="Thomas Simhofer (tsimhofer) — Software Engineering &amp; .NET Systems Architecture" />
+ <meta property="og:description" content="Software Engineer based in Austria with 5+ years of experience architecting resilient .NET ecosystems, full-stack web platforms, and agentic workflows." />
+ <meta property="og:image" content="https://tsimhofer.com/portrait.jpg" />
+ <meta property="og:image:width" content="800" />
+ <meta property="og:image:height" content="1000" />
+ <meta property="og:image:alt" content="Thomas Simhofer — Software Engineer &amp; Systems Architect in Austria" />
+ <meta property="og:locale" content="en_US" />
+ <meta property="og:locale:alternate" content="de_AT" />
+ <meta property="profile:first_name" content="Thomas" />
+ <meta property="profile:last_name" content="Simhofer" />
+ <meta property="profile:username" content="tsimhofer" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Thomas Simhofer (tsimhofer) — Software Engineering &amp; .NET Systems Architecture" />
+ <meta name="twitter:description" content="Software Engineer based in Austria specializing in .NET 8, Full Stack Web, Systems Architecture, and Agentic Engineering." />
+ <meta name="twitter:image" content="https://tsimhofer.com/portrait.jpg" />
+ <meta name="twitter:image:alt" content="Thomas Simhofer — Software Engineer &amp; Systems Architect" />
+ <script type="application/ld+json">
+ {
+  "@context": "https://schema.org",
+  "@graph": [
+   {
+    "@type": "WebSite",
+    "@id": "https://tsimhofer.com/#website",
+    "url": "https://tsimhofer.com/",
+    "name": "tsimhofer — Thomas Simhofer Engineering Portfolio",
+    "description": "Personal software engineering portfolio and architectural case studies of Thomas Simhofer.",
+    "inLanguage": ["en", "de"],
+    "publisher": { "@id": "https://tsimhofer.com/#person" }
+   },
+   {
+    "@type": "ProfilePage",
+    "@id": "https://tsimhofer.com/#profilepage",
+    "url": "https://tsimhofer.com/",
+    "name": "Thomas Simhofer — Software Engineering & Systems Architecture",
+    "isPartOf": { "@id": "https://tsimhofer.com/#website" },
+    "mainEntity": { "@id": "https://tsimhofer.com/#person" }
+   },
+   {
+    "@type": "Person",
+    "@id": "https://tsimhofer.com/#person",
+    "name": "Thomas Simhofer",
+    "alternateName": "tsimhofer",
+    "jobTitle": "Senior Software Engineer & Systems Architect",
+    "description": "Software Engineer based in Austria with over five years of professional experience turning complex technical challenges into maintainable, production-grade products in .NET, Full Stack Web, and Agentic Engineering.",
+    "url": "https://tsimhofer.com/",
+    "image": "https://tsimhofer.com/portrait.jpg",
+    "email": "mailto:contact@tsimhofer.com",
+    "address": {
+     "@type": "PostalAddress",
+     "addressLocality": "St. Veit an der Gölsen",
+     "addressRegion": "Lower Austria",
+     "postalCode": "3161",
+     "addressCountry": "AT"
+    },
+    "alumniOf": {
+     "@type": "CollegeOrUniversity",
+     "name": "TU Wien (Vienna University of Technology)"
+    },
+    "knowsLanguage": ["en", "de"],
+    "knowsAbout": [
+     ".NET 8",
+     "C#",
+     "ASP.NET Core",
+     "Blazor",
+     "Entity Framework Core",
+     "WPF & WinUI 3",
+     ".NET MAUI",
+     "MVVM & Systems Architecture",
+     "Full Stack Web Development",
+     "TypeScript",
+     "Agentic Engineering & AI Workflows",
+     "Docker & CI/CD Automation",
+     "Bluetooth Low Energy & Embedded Systems"
+    ],
+    "sameAs": [
+     "https://github.com/tsimhofer",
+     "https://www.linkedin.com"
+    ]
+   },
+   {
+    "@type": "ItemList",
+    "@id": "https://tsimhofer.com/#projects",
+    "name": "Selected Software Engineering Case Studies",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Industrial HMI & Control Platform",
+      "description": "Modular desktop and hybrid .NET 8 control interfaces engineered for 24/7 industrial automation and special-purpose machinery."
+     },
+     {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Provisioning — Financial & Personal OS",
+      "description": "End-to-end .NET 8 platform combining an ASP.NET Core RESTful backend, EF Core relational persistence, a reactive Blazor web client, and automated desktop ingestion."
+     },
+     {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Agentic CI/CD & Automation Ecosystem",
+      "description": "AI-augmented workflow orchestration, containerized Docker service pipelines, and autonomous specification-driven software delivery."
+     },
+     {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Cross-Platform BLE & Wearable Suite",
+      "description": "Multi-target .NET MAUI application for Android and Wear OS paired with real-time Bluetooth Low Energy spatial sensor hardware."
+     },
+     {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Aurelia — Automated Web Application",
+      "description": "Fast, serverless TypeScript web application powered by automated daily content pipelines and zero-downtime static edge deployment."
+     }
+    ]
+   }
+  ]
+ }
+ </script>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <script>
+  tailwind.config = {
+   theme: {
+    extend: {
+     fontFamily: {
+      sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      mono: ['"JetBrains Mono"', 'monospace']
+     }
+    }
+   }
+  }
+ </script>
+ <style>
+  /* 1. HARDCORE MINIMALISM: ZERO BORDERS, ZERO ITALICS, CLEAN GEOMETRY */
+  *, *::before, *::after {
+   box-sizing: border-box;
+   border: none !important;
+   border-width: 0 !important;
+   outline: none !important;
+   font-style: normal !important;
+  }
+  :root,
+  html[data-theme="dark"] {
+   --bg: #070707;
+   --fg: #f5f5f7;
+   --muted: #8a8a95;
+   --subtle: #b4b4be;
+   --card-bg: rgba(18, 18, 22, 0.38);
+   --card-hover: rgba(26, 26, 32, 0.48);
+   --card-inner-bg: rgba(7, 7, 9, 0.34);
+   --card-sheen: linear-gradient(135deg, rgba(255, 248, 238, 0.065) 0%, rgba(255, 255, 255, 0.018) 48%, rgba(255, 255, 255, 0.0) 100%);
+   --card-sheen-hover: linear-gradient(135deg, rgba(255, 248, 238, 0.10) 0%, rgba(255, 255, 255, 0.028) 52%, rgba(255, 255, 255, 0.005) 100%);
+   --card-shadow: inset 0 1px 0 0 rgba(255, 250, 242, 0.09), inset 1px 0 0 0 rgba(255, 250, 242, 0.04), 0 14px 36px -10px rgba(0, 0, 0, 0.42);
+   --card-shadow-hover: inset 0 1px 0 0 rgba(255, 250, 242, 0.15), inset 1px 0 0 0 rgba(255, 250, 242, 0.07), 0 20px 44px -10px rgba(0, 0, 0, 0.55);
+   --pill-bg: rgba(255, 255, 255, 0.065);
+   --pill-active-bg: #f5f5f7;
+   --pill-active-fg: #070707;
+   --header-bg: rgba(7, 7, 7, 0.55);
+   --drawer-bg: rgba(7, 7, 7, 0.78);
+  }
+  html[data-theme="light"] {
+   --bg: #f6f6f4;
+   --fg: #0a0a0c;
+   --muted: #71717a;
+   --subtle: #52525b;
+   --card-bg: rgba(240, 240, 236, 0.44);
+   --card-hover: rgba(232, 232, 226, 0.58);
+   --card-inner-bg: rgba(255, 255, 255, 0.38);
+   --card-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.0) 100%);
+   --card-sheen-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.22) 55%, rgba(255, 255, 255, 0.05) 100%);
+   --card-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.75), 0 12px 32px -10px rgba(10, 10, 12, 0.07);
+   --card-shadow-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.9), 0 18px 40px -10px rgba(10, 10, 12, 0.11);
+   --pill-bg: rgba(10, 10, 12, 0.065);
+   --pill-active-bg: #0a0a0c;
+   --pill-active-fg: #f6f6f4;
+   --header-bg: rgba(246, 246, 244, 0.65);
+   --drawer-bg: rgba(246, 246, 244, 0.82);
+  }
+  html, body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   background-color: var(--bg);
+   color: var(--fg);
+   font-family: 'Plus Jakarta Sans', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+         color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  ::selection {
+   background-color: var(--fg);
+   color: var(--bg);
+  }
+  /* Theme helper classes */
+  .theme-fg { color: var(--fg); }
+  .theme-muted { color: var(--muted); }
+  .theme-subtle { color: var(--subtle); }
+  .theme-card {
+   background-color: var(--card-bg);
+   background-image: var(--card-sheen);
+   box-shadow: var(--card-shadow);
+   backdrop-filter: blur(2.5px) saturate(135%);
+   -webkit-backdrop-filter: blur(2.5px) saturate(135%);
+   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+         box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-card-interactive {
+   background-color: var(--card-bg);
+   background-image: var(--card-sheen);
+   box-shadow: var(--card-shadow);
+   backdrop-filter: blur(2.5px) saturate(135%);
+   -webkit-backdrop-filter: blur(2.5px) saturate(135%);
+   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+         box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+         opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-card-interactive:hover {
+   background-color: var(--card-hover);
+   background-image: var(--card-sheen-hover);
+   box-shadow: var(--card-shadow-hover);
+   transform: translate3d(0, -3px, 0);
+  }
+  .theme-card-inner {
+   background-color: var(--card-inner-bg);
+   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.045);
+  }
+  .theme-pill {
+   background-color: var(--pill-bg);
+   color: var(--subtle);
+   backdrop-filter: blur(2px);
+   -webkit-backdrop-filter: blur(2px);
+   transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  .theme-pill-active {
+   background-color: var(--pill-active-bg);
+   color: var(--pill-active-fg);
+  }
+  /* 2. MAGNETIC FULL-VIEWPORT SNAP SCROLLER */
+  #snap-scroller {
+   height: 100vh;
+   width: 100vw;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   scroll-snap-type: y mandatory;
+   scroll-behavior: smooth;
+   scrollbar-width: none;
+  }
+  #snap-scroller::-webkit-scrollbar {
+   display: none;
+  }
+  .snap-frame {
+   height: 100vh;
+   width: 100%;
+   scroll-snap-align: start;
+   scroll-snap-stop: always;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+  }
+  #hero.snap-frame {
+   justify-content: flex-end;
+   align-items: flex-start;
+  }
+  /* 3. HERO DOWNWARD KEYWORD FLIPPER */
+  .hero-title {
+   font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+   line-height: 0.96;
+   letter-spacing: -0.045em;
+   font-weight: 800;
+  }
+  .flipper-viewport {
+   position: relative;
+   height: 1.32em;
+   min-width: 18ch;
+   overflow: hidden;
+   display: inline-grid;
+   align-items: center;
+   justify-items: start;
+   text-align: left;
+   font-size: clamp(1.75rem, 3.8vw, 3.2rem);
+   line-height: 1.2;
+   letter-spacing: -0.035em;
+   font-weight: 700;
+  }
+  .flipper-word {
+   grid-area: 1 / 1;
+   display: inline-block;
+   white-space: nowrap;
+   will-change: transform, opacity, filter;
+   transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+         opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+         filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* Downward motion: starts at top (-115%), settles at 0%, exits downward (+115%) */
+  .flipper-word.enter-top {
+   transform: translate3d(0, -115%, 0);
+   opacity: 0;
+   filter: blur(3px);
+   transition: none !important;
+  }
+  .flipper-word.active-center {
+   transform: translate3d(0, 0%, 0);
+   opacity: 1;
+   filter: blur(0px);
+  }
+  .flipper-word.exit-bottom {
+   transform: translate3d(0, 115%, 0);
+   opacity: 0;
+   filter: blur(3px);
+  }
+  /* 4. SUBTLE HEADER CONTROLS & SHIMMER V-ICON */
+  .nav-item {
+   opacity: 0.45;
+   transition: opacity 0.25s ease;
+   position: relative;
+  }
+  .nav-item:hover,
+  .nav-item.active {
+   opacity: 1;
+  }
+  .nav-item.active::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: -5px;
+   height: 2px;
+   background-color: var(--fg);
+   border-radius: 99px;
+  }
+  .lang-btn {
+   opacity: 0.35;
+   transition: opacity 0.25s ease;
+  }
+  .lang-btn:hover {
+   opacity: 0.75;
+  }
+  .lang-btn.active {
+   opacity: 1;
+  }
+  .theme-icon-toggle {
+   opacity: 0.45;
+   transition: opacity 0.25s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-icon-toggle:hover {
+   opacity: 1;
+  }
+  /* Shimmering V-Chevron at Bottom Right of Hero */
+  @keyframes vShimmerWave {
+   0%, 100% {
+    opacity: 0.16;
+    transform: translate3d(0, -2px, 0);
+   }
+   50% {
+    opacity: 0.95;
+    transform: translate3d(0, 3px, 0);
+   }
+  }
+  .v-chevron-1 {
+   animation: vShimmerWave 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  .v-chevron-2 {
+   animation: vShimmerWave 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.28s infinite;
+  }
+  /* Right-side subtle snap progress dots */
+  .snap-dot {
+   width: 5px;
+   height: 5px;
+   border-radius: 999px;
+   background-color: var(--fg);
+   opacity: 0.22;
+   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .snap-dot.active {
+   height: 20px;
+   opacity: 0.9;
+  }
+  /* Subpage Drawer & Legal Overlay */
+  .drawer-overlay {
+   background-color: var(--drawer-bg);
+   backdrop-filter: blur(8px) saturate(130%);
+   -webkit-backdrop-filter: blur(8px) saturate(130%);
+   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .drawer-closed {
+   opacity: 0;
+   transform: translate3d(0, 24px, 0);
+   pointer-events: none;
+  }
+  .drawer-open {
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+   pointer-events: auto;
+  }
+  /* Portrait styling: monochrome when scrolled away, smoothly fades into full color when section is in view */
+  .editorial-portrait {
+   filter: grayscale(100%) saturate(0%) contrast(1.06) brightness(0.94);
+   transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+         filter 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .editorial-portrait.in-view {
+   filter: grayscale(0%) saturate(102%) contrast(1.02) brightness(1.0);
+  }
+  .editorial-portrait:hover {
+   transform: scale(1.025);
+  }
+  /* Showcase Grid Sibling Dimming on Desktop Hover */
+  @media (min-width: 1024px) {
+   .showcase-grid:hover .showcase-item:not(:hover) {
+    opacity: 0.48;
+   }
+  }
+  /* 5. INTERACTIVE 3D VECTOR FIELD CANVAS */
+  #vector-field-canvas {
+   position: fixed;
+   inset: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: 0;
+   pointer-events: none;
+   display: block;
+  }
+  #snap-scroller {
+   position: relative;
+   z-index: 10;
+  }
+ </style>
+</head>
+<body>
+ <!-- =====================================================================
+   3D INTERACTIVE VECTOR FIELD CANVAS
+   ===================================================================== -->
+ <canvas id="vector-field-canvas" aria-hidden="true"></canvas>
+ <!-- =====================================================================
+   FIXED MINIMAL TOP HEADER
+   ===================================================================== -->
+ <header class="fixed top-0 left-0 right-0 z-30 backdrop-blur-md" style="background-color: var(--header-bg);">
+  <div class="max-w-[1360px] mx-auto px-6 sm:px-12 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
+   <button
+    type="button"
+    onclick="scrollToSnapSection('hero')"
+    class="font-sans font-extrabold text-base sm:text-lg tracking-[-0.04em] theme-fg cursor-pointer hover:opacity-75 transition-opacity"
+   >
+    tsimhofer
+   </button>
+   <nav class="flex items-center gap-6 sm:gap-10 font-sans font-bold text-xs sm:text-sm tracking-tight theme-fg">
+    <button type="button" onclick="scrollToSnapSection('welcome')" data-nav="welcome" class="nav-item cursor-pointer" id="nav-welcome">Welcome</button>
+    <button type="button" onclick="scrollToSnapSection('showcase')" data-nav="showcase" class="nav-item cursor-pointer" id="nav-showcase">Showcase</button>
+    <button type="button" onclick="scrollToSnapSection('contact')" data-nav="contact" class="nav-item cursor-pointer" id="nav-contact">Contact</button>
+   </nav>
+   <div class="flex items-center gap-4 sm:gap-6">
+    <div class="flex items-center gap-1.5 font-mono font-semibold text-[11px] tracking-[0.14em] uppercase theme-fg select-none" role="group" aria-label="Language Switcher">
+     <button type="button" onclick="setLanguage('en')" id="btn-lang-en" class="lang-btn active cursor-pointer">EN</button>
+     <span class="opacity-20">/</span>
+     <button type="button" onclick="setLanguage('de')" id="btn-lang-de" class="lang-btn cursor-pointer">DE</button>
+    </div>
+    <button
+     type="button"
+     onclick="toggleTheme()"
+     id="btn-theme-toggle"
+     aria-label="Toggle Light/Dark Mode"
+     class="theme-icon-toggle theme-fg p-1 cursor-pointer flex items-center justify-center"
+    >
+     <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" class="stroke-current fill-none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <line x1="12" y1="2" x2="12" y2="4"></line>
+      <line x1="12" y1="20" x2="12" y2="22"></line>
+      <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+      <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+      <line x1="2" y1="12" x2="4" y2="12"></line>
+      <line x1="20" y1="12" x2="22" y2="12"></line>
+      <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+      <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+     </svg>
+     <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" class="stroke-current fill-none hidden" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+     </svg>
+    </button>
+   </div>
+  </div>
+ </header>
+ <aside class="fixed right-5 sm:right-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center gap-2.5" aria-label="Section indicators">
+  <button type="button" onclick="scrollToSnapSection('hero')" data-dot="hero" class="snap-dot active cursor-pointer" aria-label="Hero"></button>
+  <button type="button" onclick="scrollToSnapSection('welcome')" data-dot="welcome" class="snap-dot cursor-pointer" aria-label="Welcome"></button>
+  <button type="button" onclick="scrollToSnapSection('showcase')" data-dot="showcase" class="snap-dot cursor-pointer" aria-label="Showcase"></button>
+  <button type="button" onclick="scrollToSnapSection('contact')" data-dot="contact" class="snap-dot cursor-pointer" aria-label="Contact"></button>
+ </aside>
+ <!-- =====================================================================
+   MAGNETIC 100VH SNAP SCROLLER
+   ===================================================================== -->
+ <main id="snap-scroller">
+  <!-- ===================================================================
+    SECTION 1: FULL VIEWPORT HERO (100VH — BOTTOM-LEFT ANCHORED)
+    =================================================================== -->
+  <section id="hero" data-section="hero" class="snap-frame justify-end items-start pb-14 md:pb-20 pl-8 md:pl-16 pr-6 sm:pr-12 lg:pr-16 max-w-[1360px] mx-auto">
+   <div class="flex flex-col justify-end items-start text-left select-none gap-0">
+    <h1 class="hero-title theme-fg">
+     tsimhofer
+    </h1>
+    <div class="mt-1 flex items-center justify-start">
+     <div class="flipper-viewport theme-muted" aria-live="polite">
+      <span id="flipping-keyword-a" class="flipper-word active-center">systems</span>
+      <span id="flipping-keyword-b" class="flipper-word enter-top" aria-hidden="true">design</span>
+     </div>
+    </div>
+   </div>
+   <div class="absolute bottom-14 md:bottom-20 right-6 sm:right-12 lg:right-16">
+    <button
+     type="button"
+     onclick="scrollToSnapSection('welcome')"
+     aria-label="Scroll to Welcome section"
+     class="p-2 theme-fg cursor-pointer flex items-center justify-center group"
+    >
+     <svg
+      viewBox="0 0 28 28"
+      class="w-6 h-6 sm:w-7 sm:h-7 stroke-current fill-none transition-transform duration-300 group-hover:translate-y-1"
+      stroke-width="2.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+     >
+      <path d="M6 8 L14 16 L22 8" class="v-chevron-1" />
+      <path d="M6 15 L14 23 L22 15" class="v-chevron-2" />
+     </svg>
+    </button>
+   </div>
+  </section>
+  <!-- ===================================================================
+    SECTION 2: WELCOME (100VH ASYMMETRIC EXECUTIVE INTRO + PORTRAIT)
+    =================================================================== -->
+  <section id="welcome" data-section="welcome" class="snap-frame px-6 sm:px-12 lg:px-16 max-w-[1360px] mx-auto">
+   <div class="grid grid-cols-12 gap-y-8 lg:gap-x-16 items-center w-full pt-12 sm:pt-8">
+    <div class="col-span-12 lg:col-span-7 space-y-5 sm:space-y-7">
+     <div class="font-mono font-bold text-xs uppercase tracking-[0.2em] theme-muted" id="welcome-kicker">
+      01 / Welcome
+     </div>
+     <h2 id="welcome-headline" class="font-sans font-extrabold text-2xl sm:text-4xl lg:text-[2.65rem] leading-[1.15] tracking-[-0.03em] theme-fg">
+      Architecting resilient software systems from enterprise .NET to modern web and agentic workflows.
+     </h2>
+     <p id="welcome-copy" class="font-sans font-medium text-sm sm:text-base lg:text-lg leading-[1.65] theme-subtle max-w-2xl">
+      I am Thomas Simhofer, a Software Engineer based in Austria with over five years of professional experience turning complex technical challenges into maintainable, production-grade products. With a background in Technical Informatics (TU Wien), I specialize in full-stack .NET ecosystems, cross-platform applications, and AI-augmented engineering.
+     </p>
+     <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
+      <div class="theme-card rounded-2xl p-4 sm:p-5">
+       <div class="font-mono font-semibold text-[10px] uppercase tracking-[0.15em] theme-muted mb-1" id="pillar-1-title">Architecture</div>
+       <div class="font-sans font-bold text-xs sm:text-sm theme-fg">.NET 8 / C# / MVVM</div>
+      </div>
+      <div class="theme-card rounded-2xl p-4 sm:p-5">
+       <div class="font-mono font-semibold text-[10px] uppercase tracking-[0.15em] theme-muted mb-1" id="pillar-2-title">Full Stack</div>
+       <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Blazor / Web / SQL</div>
+      </div>
+      <div class="theme-card rounded-2xl p-4 sm:p-5">
+       <div class="font-mono font-semibold text-[10px] uppercase tracking-[0.15em] theme-muted mb-1" id="pillar-3-title">Modern Delivery</div>
+       <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Agentic AI / CI/CD</div>
+      </div>
+     </div>
+    </div>
+    <div class="col-span-12 sm:col-span-8 md:col-span-6 lg:col-span-5">
+     <div class="relative overflow-hidden rounded-3xl theme-card aspect-[4/5] max-h-[42vh] sm:max-h-[54vh] lg:max-h-[62vh] w-full mx-auto">
+      <img
+       src="portrait.jpg" width="800" height="1000" loading="lazy" decoding="async" fetchpriority="low"
+       alt="Thomas Simhofer — Senior Software Engineer &amp; Systems Architect based in Austria"
+       class="w-full h-full object-cover object-top editorial-portrait select-none"
+      />
+      <div class="absolute bottom-4 left-5 right-5 flex items-center justify-between font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-white/90 pointer-events-none">
+       <span>Thomas Simhofer</span>
+       <span>Austria</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- ===================================================================
+    SECTION 3: SHOWCASE (STICKY SPLIT-SCREEN + 5 100VH SNAP SLIDES)
+    =================================================================== -->
+  <section id="showcase" class="relative w-full max-w-[1360px] mx-auto px-6 sm:px-12 lg:px-16">
+   <div class="grid grid-cols-12 lg:gap-x-16 items-start">
+    <div class="hidden lg:flex lg:col-span-5 sticky top-0 h-screen flex-col justify-between py-24 select-none">
+     <div>
+      <div class="font-mono font-bold text-xs uppercase tracking-[0.2em] theme-muted mb-2" id="showcase-kicker">
+       02 / Showcase
+      </div>
+      <h2 class="font-sans font-extrabold text-3xl xl:text-4xl tracking-[-0.035em] theme-fg mb-3" id="showcase-title">
+       Selected Engineering Work
+      </h2>
+      <p id="showcase-hint" class="font-sans font-medium text-xs xl:text-sm theme-muted max-w-xs leading-relaxed">
+       Select any project to read the architectural case study and what it taught me.
+      </p>
+     </div>
+     <div class="my-auto py-6">
+      <div class="flex items-baseline gap-3 mb-2">
+       <span id="showcase-active-num" class="font-sans font-extrabold text-6xl xl:text-7xl tracking-[-0.045em] theme-fg leading-none">
+        01
+       </span>
+       <span class="font-mono font-bold text-xs theme-muted">/ 05</span>
+      </div>
+      <div id="showcase-active-domain" class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-1">
+       Enterprise .NET Architecture
+      </div>
+      <div id="showcase-active-title" class="font-sans font-extrabold text-lg xl:text-xl tracking-[-0.025em] theme-fg">
+       Industrial HMI &amp; Control Platform
+      </div>
+      <div class="w-full h-1 rounded-full mt-6 overflow-hidden" style="background-color: var(--pill-bg);">
+       <div id="showcase-progress-bar" class="h-full transition-all duration-500 ease-out" style="width: 20%; background-color: var(--fg);"></div>
+      </div>
+     </div>
+     <div class="flex items-center gap-2" id="showcase-quick-pills">
+      <button type="button" onclick="scrollToProjectSlide(0)" data-proj-pill="0" class="theme-pill-active rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all">01</button>
+      <button type="button" onclick="scrollToProjectSlide(1)" data-proj-pill="1" class="theme-pill rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all">02</button>
+      <button type="button" onclick="scrollToProjectSlide(2)" data-proj-pill="2" class="theme-pill rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all">03</button>
+      <button type="button" onclick="scrollToProjectSlide(3)" data-proj-pill="3" class="theme-pill rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all">04</button>
+      <button type="button" onclick="scrollToProjectSlide(4)" data-proj-pill="4" class="theme-pill rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all">05</button>
+     </div>
+    </div>
+    <div id="showcase-slides" class="col-span-12 lg:col-span-7">
+     <div id="project-slide-0" data-section="showcase" data-project-idx="0" class="snap-frame py-20 sm:py-24">
+      <article onclick="openProjectSubpage('industrial-hmi')" role="button" tabindex="0" class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full">
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>01 — Enterprise .NET Architecture</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">Industrial HMI &amp; Control Platform</h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">Modular desktop and hybrid control interfaces engineered for 24/7 industrial automation and special-purpose machinery.</p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">What It Taught Me / 01</div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Strict Decoupling Enables Multi-Year Evolution</div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">.NET 8</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">C#</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">WPF &amp; WinUI 3</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Blazor Hybrid</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Dependency Injection</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">MVVM</span>
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">Read Case Study →</span>
+       </div>
+      </article>
+     </div>
+     <div id="project-slide-1" data-section="showcase" data-project-idx="1" class="snap-frame py-20 sm:py-24">
+      <article onclick="openProjectSubpage('provisioning-os')" role="button" tabindex="0" class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full">
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>02 — Full Stack .NET &amp; Web Architecture</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">Provisioning — Financial &amp; Personal OS</h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">End-to-end .NET 8 platform combining a RESTful backend, relational persistence, a reactive Blazor web client, and automated desktop ingestion.</p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">What It Taught Me / 01</div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Shared Domain Contracts Eliminate Drift</div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Full Stack .NET 8</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">ASP.NET Core API</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">EF Core</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Blazor Web</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">SQL</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">System Integration</span>
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">Read Case Study →</span>
+       </div>
+      </article>
+     </div>
+     <div id="project-slide-2" data-section="showcase" data-project-idx="2" class="snap-frame py-20 sm:py-24">
+      <article onclick="openProjectSubpage('agentic-automation')" role="button" tabindex="0" class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full">
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>03 — Agentic Engineering &amp; Distributed Systems</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">Agentic CI/CD &amp; Automation Ecosystem</h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">AI-augmented workflow orchestration, containerized service pipelines, and autonomous specification-driven software delivery.</p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">What It Taught Me / 01</div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Specification Clarity as an Engineering Multiplier</div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Agentic Engineering</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Workflow Orchestration</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Docker</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">n8n Pipelines</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Event-Driven</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">CI/CD</span>
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">Read Case Study →</span>
+       </div>
+      </article>
+     </div>
+     <div id="project-slide-3" data-section="showcase" data-project-idx="3" class="snap-frame py-20 sm:py-24">
+      <article onclick="openProjectSubpage('ble-wearable-suite')" role="button" tabindex="0" class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full">
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>04 — Mobile, Wearable &amp; Real-Time Prototyping</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">Cross-Platform BLE &amp; Wearable Suite</h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">Multi-target .NET MAUI application for Android and Wear OS paired with real-time Bluetooth Low Energy spatial sensor hardware.</p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">What It Taught Me / 01</div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Mock-First Architecture for Hardware &amp; Store Dependencies</div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">.NET MAUI</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Android &amp; Wear OS</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Bluetooth Low Energy</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Real-Time Streams</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">ESP32 / C++</span>
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">Read Case Study →</span>
+       </div>
+      </article>
+     </div>
+     <div id="project-slide-4" data-section="showcase" data-project-idx="4" class="snap-frame py-20 sm:py-24">
+      <article onclick="openProjectSubpage('aurelia-web')" role="button" tabindex="0" class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full">
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>05 — Modern Web &amp; Zero-Maintenance Delivery</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">Aurelia — Automated Web Application</h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">Fast, serverless TypeScript web application powered by automated daily content pipelines and zero-downtime static edge deployment.</p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">What It Taught Me / 01</div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">Architectural Simplicity Outperforms Over-Engineering</div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">TypeScript</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Modern Web</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Vite</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">GitHub Actions CI/CD</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">Edge Delivery</span>
+         <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">UI/UX Design</span>
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">Read Case Study →</span>
+       </div>
+      </article>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- ===================================================================
+    SECTION 4: CONTACT & LEGAL (100VH CLOSING SNAP SECTION)
+    =================================================================== -->
+  <section id="contact" data-section="contact" class="snap-frame px-6 sm:px-12 lg:px-16 max-w-[1360px] mx-auto justify-between py-20 sm:py-24">
+   <div></div>
+   <div class="w-full grid grid-cols-12 gap-y-8 lg:gap-x-16 items-end">
+    <div class="col-span-12 lg:col-span-7 space-y-5">
+     <div class="font-mono font-bold text-xs uppercase tracking-[0.2em] theme-muted" id="contact-kicker">
+      03 / Contact
+     </div>
+     <h2 id="contact-headline" class="font-sans font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-[-0.035em] leading-[1.04] theme-fg">
+      Ready for the next architectural challenge.
+     </h2>
+     <p id="contact-subtext" class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle max-w-xl">
+      Available for senior software engineering roles, full-stack .NET systems architecture, and technical consulting in Austria or remote.
+     </p>
+    </div>
+    <div class="col-span-12 lg:col-span-5 space-y-3 sm:space-y-4">
+     <div
+      onclick="copyEmailToClipboard()"
+      role="button"
+      tabindex="0"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyEmailToClipboard();}"
+      class="theme-card-interactive rounded-2xl p-6 sm:p-7 cursor-pointer"
+     >
+      <div class="flex items-center justify-between mb-2">
+       <span class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted" id="contact-email-kicker">Direct Electronic Mail</span>
+       <span id="copy-status-pill" class="theme-pill rounded-full px-3 py-1 font-mono font-bold text-[10px] uppercase tracking-[0.14em]">
+        Click to copy
+       </span>
+      </div>
+      <div class="font-sans font-extrabold text-xl sm:text-2xl tracking-[-0.02em] theme-fg break-all">
+       contact@tsimhofer.com
+      </div>
+     </div>
+     <div class="grid grid-cols-2 gap-3 sm:gap-4">
+      <a
+       href="https://github.com/tsimhofer"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="theme-card-interactive rounded-2xl p-5 sm:p-6 block group"
+      >
+       <div class="flex items-center justify-between mb-2 font-mono font-bold text-[11px] uppercase tracking-[0.14em] theme-muted">
+        <span>GitHub</span>
+        <span class="transition-transform duration-300 group-hover:translate-x-1">↗</span>
+       </div>
+       <div class="font-sans font-extrabold text-base sm:text-lg theme-fg">@tsimhofer</div>
+      </a>
+      <a
+       href="https://www.linkedin.com"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="theme-card-interactive rounded-2xl p-5 sm:p-6 block group"
+      >
+       <div class="flex items-center justify-between mb-2 font-mono font-bold text-[11px] uppercase tracking-[0.14em] theme-muted">
+        <span>LinkedIn</span>
+        <span class="transition-transform duration-300 group-hover:translate-x-1">↗</span>
+       </div>
+       <div class="font-sans font-extrabold text-base sm:text-lg theme-fg">Thomas Simhofer</div>
+      </a>
+     </div>
+    </div>
+   </div>
+   <footer class="w-full pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] theme-muted">
+    <div>&copy; 2026 Thomas Simhofer — Austria</div>
+    <div class="flex items-center gap-6">
+     <button type="button" onclick="openLegalModal('impressum')" class="hover:opacity-100 opacity-75 transition-opacity cursor-pointer uppercase">
+      Impressum (§ 5 ECG)
+     </button>
+     <button type="button" onclick="openLegalModal('privacy')" id="footer-privacy-link" class="hover:opacity-100 opacity-75 transition-opacity cursor-pointer uppercase">
+      Privacy (DSGVO)
+     </button>
+    </div>
+   </footer>
+  </section>
+ </main>
+ <!-- =====================================================================
+   FULL-SCREEN PROJECT SUBPAGE DRAWER (#project-subpage)
+   ===================================================================== -->
+ <aside
+  id="project-subpage"
+  class="drawer-overlay drawer-closed fixed inset-0 z-40 overflow-y-auto px-6 sm:px-12 lg:px-16 py-20 sm:py-28"
+  aria-hidden="true"
+ >
+  <div class="max-w-[1120px] mx-auto">
+   <div class="flex items-center justify-between mb-12 sm:mb-16">
+    <button
+     type="button"
+     onclick="closeProjectSubpage()"
+     class="group inline-flex items-center gap-3 font-sans font-extrabold text-sm sm:text-base theme-fg cursor-pointer"
+    >
+     <span class="transition-transform duration-300 group-hover:-translate-x-1.5">←</span>
+     <span id="subpage-back-text">Back to Showcase</span>
+    </button>
+    <button
+     type="button"
+     onclick="closeProjectSubpage()"
+     class="theme-pill rounded-full px-4 py-1.5 font-mono font-bold text-xs uppercase tracking-[0.14em] cursor-pointer hover:opacity-80"
+    >
+     ESC
+    </button>
+   </div>
+   <div id="subpage-body"></div>
+  </div>
+ </aside>
+ <!-- =====================================================================
+   LEGAL MODAL OVERLAY (IMPRESSUM § 5 ECG & DSGVO PRIVACY)
+   ===================================================================== -->
+ <div
+  id="legal-modal"
+  class="drawer-overlay drawer-closed fixed inset-0 z-50 overflow-y-auto px-6 sm:px-12 lg:px-16 py-24 flex items-center justify-center"
+  aria-hidden="true"
+ >
+  <div class="max-w-xl w-full theme-card rounded-3xl p-8 sm:p-12 space-y-6">
+   <div class="flex items-center justify-between">
+    <span class="font-mono font-bold text-xs uppercase tracking-[0.18em] theme-muted">Legal Notice</span>
+    <button
+     type="button"
+     onclick="closeLegalModal()"
+     class="theme-pill rounded-full px-3.5 py-1 font-mono font-bold text-xs uppercase tracking-[0.12em] cursor-pointer"
+    >
+     ESC
+    </button>
+   </div>
+   <div id="legal-modal-body" class="space-y-4"></div>
+  </div>
+ </div>
+ <!-- =====================================================================
+   APPLICATION SCRIPT
+   ===================================================================== -->
+ <script>
+  // 1. GLOBAL STATE
+  let currentTheme = localStorage.getItem('ts_theme') || 'dark';
+  let currentLang = localStorage.getItem('ts_lang') || 'en';
+  let activeProjectId = null;
+  let snapObserver = null;
+  // 2. HERO DOWNWARD KEYWORD FLIPPER
+  const heroKeywords = [
+   "systems",
+   "design",
+   ".NET",
+   "Web",
+   "Full Stack",
+   "Agentic Engineering",
+   "Modelling",
+   "Prototyping"
+  ];
+  let keywordIndex = 0;
+  let activeKeywordSlot = 'a';
+  let flipperIntervalId = null;
+  function startKeywordFlipper() {
+   const slotA = document.getElementById('flipping-keyword-a');
+   const slotB = document.getElementById('flipping-keyword-b');
+   if (!slotA || !slotB) return;
+   if (flipperIntervalId) clearInterval(flipperIntervalId);
+   flipperIntervalId = setInterval(() => {
+    const nextIndex = (keywordIndex + 1) % heroKeywords.length;
+    const incomingWord = heroKeywords[nextIndex];
+    const currEl = activeKeywordSlot === 'a' ? slotA : slotB;
+    const nextEl = activeKeywordSlot === 'a' ? slotB : slotA;
+    // Stage incoming element at top without transition
+    nextEl.textContent = incomingWord;
+    nextEl.classList.remove('active-center', 'exit-bottom');
+    nextEl.classList.add('enter-top');
+    nextEl.setAttribute('aria-hidden', 'false');
+    currEl.setAttribute('aria-hidden', 'true');
+    // Force reflow so browser registers the starting position (-115%)
+    void nextEl.offsetWidth;
+    // Trigger simultaneous downward slide
+    requestAnimationFrame(() => {
+     currEl.classList.remove('active-center');
+     currEl.classList.add('exit-bottom');
+     nextEl.classList.remove('enter-top');
+     nextEl.classList.add('active-center');
+    });
+    keywordIndex = nextIndex;
+    activeKeywordSlot = activeKeywordSlot === 'a' ? 'b' : 'a';
+   }, 2200);
+  }
+  // 3. BILINGUAL UI DICTIONARY (EN / DE)
+  const i18n = {
+   en: {
+    navWelcome: "Welcome",
+    navShowcase: "Showcase",
+    navContact: "Contact",
+    welcomeKicker: "01 / Welcome",
+    welcomeHeadline: "Architecting resilient software systems from enterprise .NET to modern web and agentic workflows.",
+    welcomeCopy: "I am Thomas Simhofer, a Software Engineer based in Austria with over five years of professional experience turning complex technical challenges into maintainable, production-grade products. With a background in Technical Informatics (TU Wien), I specialize in full-stack .NET ecosystems, cross-platform applications, and AI-augmented engineering.",
+    pillar1Title: "Architecture",
+    pillar2Title: "Full Stack",
+    pillar3Title: "Modern Delivery",
+    showcaseKicker: "02 / Showcase",
+    showcaseTitle: "Selected Engineering Work",
+    showcaseHint: "Select any project to read the architectural case study and what it taught me.",
+    cardReadMore: "Read Case Study →",
+    subpageBack: "Back to Showcase",
+    subpageRoleLabel: "Role & Responsibility",
+    subpageStackLabel: "Architecture & Stack",
+    subpageOverviewTitle: "Architectural Overview",
+    subpageTaughtTitle: "What It Taught Me",
+    subpageTakeawayLabel: "Takeaway",
+    subpageNextLabel: "Next Project →",
+    contactKicker: "03 / Contact",
+    contactHeadline: "Ready for the next architectural challenge.",
+    contactSubtext: "Available for senior software engineering roles, full-stack .NET systems architecture, and technical consulting in Austria or remote.",
+    contactEmailKicker: "Direct Electronic Mail",
+    copyDefault: "Click to copy",
+    copySuccess: "Copied",
+    footerPrivacy: "Privacy (DSGVO)"
+   },
+   de: {
+    navWelcome: "Willkommen",
+    navShowcase: "Showcase",
+    navContact: "Kontakt",
+    welcomeKicker: "01 / Willkommen",
+    welcomeHeadline: "Architektur resilienter Softwaresysteme von Enterprise .NET bis zu Modern Web und Agentic Workflows.",
+    welcomeCopy: "Ich bin Thomas Simhofer, Software Engineer aus Österreich mit über fünf Jahren Berufserfahrung in der Entwicklung wartbarer, produktionsreifer Softwareprodukte. Mit einem Fundament in Technischer Informatik (TU Wien) bin ich spezialisiert auf Full-Stack-.NET-Ökosysteme, Cross-Platform-Applikationen und KI-gestütztes Software Engineering.",
+    pillar1Title: "Architektur",
+    pillar2Title: "Full Stack",
+    pillar3Title: "Moderne Auslieferung",
+    showcaseKicker: "02 / Showcase",
+    showcaseTitle: "Ausgewählte Engineering-Arbeiten",
+    showcaseHint: "Wähle ein Projekt für die architektonische Fallstudie und meine wichtigsten Erkenntnisse.",
+    cardReadMore: "Fallstudie lesen →",
+    subpageBack: "Zurück zum Showcase",
+    subpageRoleLabel: "Rolle & Verantwortung",
+    subpageStackLabel: "Architektur & Tech-Stack",
+    subpageOverviewTitle: "Architektur-Überblick",
+    subpageTaughtTitle: "Was es mich gelehrt hat",
+    subpageTakeawayLabel: "Erkenntnis",
+    subpageNextLabel: "Nächstes Projekt →",
+    contactKicker: "03 / Kontakt",
+    contactHeadline: "Bereit für die nächste architektonische Herausforderung.",
+    contactSubtext: "Verfügbar für Senior Software Engineering Rollen, Full-Stack .NET Systemarchitektur und technisches Consulting in Österreich oder Remote.",
+    contactEmailKicker: "Direkte E-Mail",
+    copyDefault: "Klicken zum Kopieren",
+    copySuccess: "Kopiert",
+    footerPrivacy: "Datenschutz (DSGVO)"
+   }
+  };
+  // 4. SHOWCASE PROJECTS DATA (5 ARCHITECTURAL CASE STUDIES)
+  const projects = [
+   {
+    id: "industrial-hmi",
+    num: "01",
+    stack: [".NET 8", "C#", "WPF & WinUI 3", "Blazor Hybrid", "Dependency Injection", "MVVM"],
+    en: {
+     domain: "Enterprise .NET Architecture",
+     title: "Industrial HMI & Control Platform",
+     role: "Lead Frontend & HMI Software Engineer",
+     summary: "Modular desktop and hybrid control interfaces engineered for 24/7 industrial automation and special-purpose machinery.",
+     overview: [
+      "Modern manufacturing and special-purpose machinery require human-machine interfaces (HMIs) that remain deterministic under continuous 24/7 load while presenting operators with clear, zero-latency workflows. Over five years of industrial software development, I architected and delivered modular .NET control applications tailored to complex hardware lines.",
+      "By structuring the platform around decoupled regions, dependency injection containers (Prism, DryIoc), and reactive MVVM state management, individual machine modules can be composed, tested, and deployed independently across diverse customer configurations without duplicating core control logic."
+     ],
+     learnings: [
+      {
+       title: "Strict Decoupling Enables Multi-Year Evolution",
+       body: "Separating UI presentation, domain state, and hardware communication makes it possible to evolve user interfaces from legacy desktop frameworks to Blazor Hybrid and WinUI 3 without rewriting mission-critical business rules."
+      },
+      {
+       title: "Resilience Under Real-World Production Load",
+       body: "Industrial operators rely on predictable software behavior. Building defensive state machines, asynchronous fault recovery, and clear diagnostic telemetry taught me how to engineer software that degrades gracefully rather than failing silently."
+      },
+      {
+       title: "Cross-Disciplinary Domain Modelling",
+       body: "Translating requirements between electrical engineers, PLC specialists, and end customers sharpened my ability to model complex physical processes into clean, intuitive software abstractions."
+      }
+     ]
+    },
+    de: {
+     domain: "Enterprise .NET Architektur",
+     title: "Industrielle HMI- & Steuerungsplattform",
+     role: "Lead Frontend & HMI Software Engineer",
+     summary: "Modulare Desktop- und Hybrid-Bedienoberflächen für den 24/7-Einsatz im Sondermaschinenbau und der Industrieautomation.",
+     overview: [
+      "Im modernen Sondermaschinenbau müssen Mensch-Maschine-Schnittstellen (HMIs) im 24/7-Dauerbetrieb absolut deterministisch arbeiten und Bedienern gleichzeitig verzögerungsfreie, übersichtliche Workflows bieten. Über fünf Jahre hinweg habe ich modulare .NET-Steuerungsapplikationen für komplexe Industrieanlagen entworfen und ausgeliefert.",
+      "Durch die Strukturierung über entkoppelte Regionen, Dependency Injection (Prism, DryIoc) und reaktives MVVM-State-Management lassen sich einzelne Maschinenmodule unabhängig zusammensetzen, testen und für verschiedenste Kundenkonfigurationen ausrollen."
+     ],
+     learnings: [
+      {
+       title: "Strikte Entkopplung ermöglicht Technologiewechsel",
+       body: "Die saubere Trennung zwischen Präsentationsschicht, Domänenstatus und Hardware-Kommunikation erlaubt den schrittweisen Umstieg auf Blazor Hybrid und WinUI 3, ohne bewährte Kernlogik anzutasten."
+      },
+      {
+       title: "Resilienz unter realen Produktionsbedingungen",
+       body: "Anlagenbediener benötigen verlässliches Systemverhalten. Defensive Zustandsautomaten, asynchrone Fehlerbehandlung und klare Diagnose-Telemetrie verhindern stille Ausfälle im Echtbetrieb."
+      },
+      {
+       title: "Interdisziplinäre Systemmodellierung",
+       body: "Die enge Abstimmung zwischen Elektrotechnik, SPS-Entwicklung und Endkunden hat meine Fähigkeit geschärft, physikalische Prozesse in präzise, intuitiv bedienbare Softwaremodelle zu übersetzen."
+      }
+     ]
+    }
+   },
+   {
+    id: "provisioning-os",
+    num: "02",
+    stack: ["Full Stack .NET 8", "ASP.NET Core API", "EF Core", "Blazor Web", "SQL", "System Integration"],
+    en: {
+     domain: "Full Stack .NET & Web Architecture",
+     title: "Provisioning — Financial & Personal OS",
+     role: "Full Stack Architect & Product Engineer",
+     summary: "End-to-end .NET 8 platform combining a RESTful backend, relational persistence, a reactive Blazor web client, and automated desktop ingestion.",
+     overview: [
+      "Provisioning was conceived as a unified full-stack software suite to automate document ingestion, financial analytics, and personal resource planning within a single cohesive architecture. Rather than relying on fragmented third-party tools, the system provides full data ownership and automated background processing.",
+      "The architecture pairs a clean ASP.NET Core REST API and Entity Framework Core relational data model with a responsive Blazor web dashboard and a lightweight Windows background companion that ingests and classifies incoming records in real time."
+     ],
+     learnings: [
+      {
+       title: "Shared Domain Contracts Eliminate Drift",
+       body: "Designing both the database schema and the frontend consumer reinforced the value of strict DTO boundaries, idempotent REST endpoints, and predictable query performance as data volume scales."
+      },
+      {
+       title: "Zero-Friction Background Workflows",
+       body: "Enterprise-grade power means little if daily interaction feels heavy. Automating background file capture via a native system-tray agent taught me how to eliminate manual data entry and focus the web UI purely on high-value insights."
+      },
+      {
+       title: "End-to-End Product Ownership",
+       body: "Taking a multi-client product from initial domain modeling through database migrations, API security, and UI polish solidified a holistic Full Stack mindset."
+      }
+     ]
+    },
+    de: {
+     domain: "Full Stack .NET & Webarchitektur",
+     title: "Provisioning — Financial & Personal OS",
+     role: "Full Stack Architect & Product Engineer",
+     summary: "Durchgängige .NET 8 Plattform mit RESTful Backend, relationaler Datenhaltung, reaktivem Blazor Web-Client und automatisierter Desktop-Erfassung.",
+     overview: [
+      "Provisioning wurde als ganzheitliche Full-Stack-Suite konzipiert, um Dokumentenerfassung, Finanzanalysen und Ressourcenplanung in einer einzigen konsistenten Architektur zu vereinen – mit voller Datenhoheit und automatisierter Hintergrundverarbeitung.",
+      "Das System verbindet eine ASP.NET Core REST API und ein relationales Entity Framework Core Datenmodell mit einem reaktiven Blazor Web-Dashboard sowie einem schlanken Windows-Hintergrunddienst zur automatischen Belegerfassung."
+     ],
+     learnings: [
+      {
+       title: "Durchgängige Domänenverträge über den gesamten Stack",
+       body: "Die gleichzeitige Entwicklung von Datenbankschema und Frontend-Konsumenten unterstreicht den Wert klarer DTO-Grenzen, idempotenter REST-Endpunkte und performanter Abfragen."
+      },
+      {
+       title: "Reibungslose Hintergrund-Workflows",
+       body: "Durch die Automatisierung des Datei-Imports über einen System-Tray-Agenten entfällt manuelle Dateneingabe komplett, sodass sich das Web-UI auf Analyse und Entscheidungen konzentriert."
+      },
+      {
+       title: "Ganzheitliche Produktverantwortung",
+       body: "Die Umsetzung eines Multi-Client-Systems von der Datenmodellierung über Migrationen bis zur UI-Verfeinerung schärft das Verständnis für das Zusammenspiel aller Schichten."
+      }
+     ]
+    }
+   },
+   {
+    id: "agentic-automation",
+    num: "03",
+    stack: ["Agentic Engineering", "Workflow Orchestration", "Docker", "n8n Pipelines", "Event-Driven", "CI/CD"],
+    en: {
+     domain: "Agentic Engineering & Distributed Systems",
+     title: "Agentic CI/CD & Automation Ecosystem",
+     role: "Systems & Automation Architect",
+     summary: "AI-augmented workflow orchestration, containerized service pipelines, and autonomous specification-driven software delivery.",
+     overview: [
+      "Modern software engineering is rapidly shifting from manual boilerplate coding to specification-driven, agentic orchestration. This project integrates containerized microservices, event-driven MQTT/webhook brokers, and automated workflow engines into a self-hosted operational backbone.",
+      "By combining structured architectural specifications with autonomous coding and verification pipelines, new features, cross-service integrations, and deployment verifications are executed reproducibly with minimal manual overhead."
+     ],
+     learnings: [
+      {
+       title: "Specification Clarity as an Engineering Multiplier",
+       body: "Working with AI agents and automated pipelines proved that unambiguous architectural specifications, strict interface contracts, and mockable service boundaries are the highest-leverage skills in modern software engineering."
+      },
+      {
+       title: "Composable Container Infrastructure",
+       body: "Orchestrating multi-container environments with Docker and automated workflow triggers taught me how to isolate failure domains, manage secrets cleanly, and keep distributed services observable."
+      },
+      {
+       title: "High-Velocity Iterative Prototyping",
+       body: "Integrating agentic workflows into the development lifecycle compressed the feedback loop from initial concept to testable prototype from weeks into hours without sacrificing code quality."
+      }
+     ]
+    },
+    de: {
+     domain: "Agentic Engineering & Verteilte Systeme",
+     title: "Agentic CI/CD & Automatisierungs-Ökosystem",
+     role: "Systems & Automation Architect",
+     summary: "KI-gestützte Workflow-Orchestrierung, containerisierte Service-Pipelines und spezifikationsgetriebene Softwareauslieferung.",
+     overview: [
+      "Moderne Softwareentwicklung verlagert sich von manuellem Boilerplate-Code hin zu spezifikationsgetriebener, agentischer Orchestrierung. Dieses Projekt verbindet containerisierte Microservices, Event-Broker und automatisierte Workflow-Engines zu einer selbstgehosteten Plattform.",
+      "Durch die Kombination klarer Architekturspezifikationen mit automatisierten Build- und Verifikations-Pipelines werden neue Features und Systemintegrationen reproduzierbar und mit minimalem manuellem Aufwand ausgeliefert."
+     ],
+     learnings: [
+      {
+       title: "Spezifikationsklarheit als Produktivitätshebel",
+       body: "Die Arbeit mit KI-Agenten zeigt, dass eindeutige Architekturdokumente, strikte Interface-Verträge und sauber isolierte Mock-Schichten die wichtigsten Kernkompetenzen moderner Softwarearchitektur sind."
+      },
+      {
+       title: "Modulare Container-Infrastruktur",
+       body: "Die Orchestrierung von Multi-Container-Umgebungen mit Docker schärft den Blick für isolierte Fehlerdomänen, sicheres Secret-Management und transparente Systemüberwachung."
+      },
+      {
+       title: "Hohe Iterationsgeschwindigkeit beim Prototyping",
+       body: "Agentische Workflows verkürzen die Feedbackschleife vom ersten Konzept bis zum testbaren Prototypen von Wochen auf wenige Stunden – bei gleichbleibend hoher Codequalität."
+      }
+     ]
+    }
+   },
+   {
+    id: "ble-wearable-suite",
+    num: "04",
+    stack: [".NET MAUI", "Android & Wear OS", "Bluetooth Low Energy", "Real-Time Streams", "ESP32 / C++"],
+    en: {
+     domain: "Mobile, Wearable & Real-Time Prototyping",
+     title: "Cross-Platform BLE & Wearable Suite",
+     role: "Mobile & Embedded Systems Engineer",
+     summary: "Multi-target .NET MAUI application for Android and Wear OS paired with real-time Bluetooth Low Energy spatial sensor hardware.",
+     overview: [
+      "Delivering a seamless user experience across smartphones, smartwatches, and custom sensor hardware requires tight coordination across disparate runtime environments. This suite connects custom ESP32-S3 motion hardware and Wear OS companion apps to a central .NET MAUI mobile client.",
+      "The architecture abstracts platform-specific Bluetooth Low Energy GATT streams, monetization, and companion synchronization behind clean C# interfaces—allowing the entire system to be simulated and tested offline before production deployment."
+     ],
+     learnings: [
+      {
+       title: "Mock-First Architecture for Hardware & Store Dependencies",
+       body: "Abstracting hardware sensors and store billing behind clean interfaces enabled deterministic offline testing and rapid UI iteration without waiting on physical devices or external store approvals."
+      },
+      {
+       title: "Designing for Constrained Form Factors",
+       body: "Building for Wear OS alongside mobile screens taught me ruthless prioritization: wearable interfaces must deliver immediate glanceable value and zero interaction friction."
+      },
+      {
+       title: "High-Frequency Asynchronous Data Streams",
+       body: "Streaming real-time orientation vectors over Bluetooth Low Energy into a reactive UI strengthened my command of thread-safe buffering, backpressure management, and battery-conscious scheduling."
+      }
+     ]
+    },
+    de: {
+     domain: "Mobile, Wearable & Echtzeit-Prototyping",
+     title: "Cross-Platform BLE & Wearable Suite",
+     role: "Mobile & Embedded Systems Engineer",
+     summary: "Multi-Target .NET MAUI Applikation für Android und Wear OS gekoppelt mit Bluetooth Low Energy Echtzeit-Sensorhardware.",
+     overview: [
+      "Ein nahtloses Zusammenspiel zwischen Smartphone, Smartwatch und eigener Sensorhardware erfordert präzise abgestimmte Laufzeitumgebungen. Diese Suite verbindet ESP32-S3 Bewegungssensorik und eine Wear OS Companion-App mit einem zentralen .NET MAUI Client.",
+      "Plattformspezifische BLE-GATT-Streams, Monetarisierung und Gerätesynchronisation sind hinter klaren C#-Interfaces abstrahiert – wodurch das Gesamtsystem komplett offline im Trockentest validiert werden kann."
+     ],
+     learnings: [
+      {
+       title: "Mock-First-Architektur für Hardware- & Store-Abhängigkeiten",
+       body: "Durch die Kapselung von Sensoren und In-App-Billing hinter Interfaces lassen sich sämtliche Abläufe deterministisch testen, noch bevor externe Store-Accounts oder Hardware verfügbar sind."
+      },
+      {
+       title: "Fokussierte UX für kompakte Formfaktoren",
+       body: "Die Entwicklung für Wear OS erfordert kompromisslose Priorisierung: Informationen müssen auf einen Blick erfassbar und ohne unnötige Interaktionsschritte bedienbar sein."
+      },
+      {
+       title: "Asynchrone Echtzeit-Datenströme",
+       body: "Das Verarbeiten hochfrequenter BLE-Sensordaten im UI vertiefte meine Praxis in Thread-sicherem Buffering, Backpressure-Kontrolle und energieeffizienter Hintergrundverarbeitung."
+      }
+     ]
+    }
+   },
+   {
+    id: "aurelia-web",
+    num: "05",
+    stack: ["TypeScript", "Modern Web", "Vite", "GitHub Actions CI/CD", "Edge Delivery", "UI/UX Design"],
+    en: {
+     domain: "Modern Web & Zero-Maintenance Delivery",
+     title: "Aurelia — Automated Web Application",
+     role: "Frontend & CI/CD Engineer",
+     summary: "Fast, serverless TypeScript web application powered by automated daily content pipelines and zero-downtime static edge deployment.",
+     overview: [
+      "Aurelia is an interactive web application engineered to run autonomously with zero ongoing server maintenance costs. Built with TypeScript and Vite, the application delivers instant load times and a refined, distraction-free user experience across desktop and mobile browsers.",
+      "Behind the scenes, scheduled GitHub Actions pipelines automatically curate, validate, and publish updated data payloads directly to edge hosting—demonstrating how smart CI/CD architecture can replace traditional backend overhead."
+     ],
+     learnings: [
+      {
+       title: "Architectural Simplicity Outperforms Over-Engineering",
+       body: "Replacing a continuously running backend server with deterministic scheduled build pipelines eliminated hosting costs, security patching overhead, and runtime database bottlenecks."
+      },
+      {
+       title: "Type-Safe Frontend State Management",
+       body: "Leveraging strict TypeScript models across external API ingestion and client-side state prevented runtime regressions and made UI refactoring effortless."
+      },
+      {
+       title: "Precision in Micro-Interactions",
+       body: "Building a consumer-facing web product reinforced how responsive layout geometry, typography, and immediate visual feedback directly shape perceived product quality."
+      }
+     ]
+    },
+    de: {
+     domain: "Modern Web & Wartungsfreie Auslieferung",
+     title: "Aurelia — Automatisierte Web-Applikation",
+     role: "Frontend & CI/CD Engineer",
+     summary: "Schnelle, serverlose TypeScript-Webanwendung mit automatisierten täglichen Content-Pipelines und statischem Edge-Deployment.",
+     overview: [
+      "Aurelia wurde als interaktive Webanwendung entwickelt, die völlig autonom und ohne laufende Serverkosten betrieben wird. Auf Basis von TypeScript und Vite bietet sie minimale Ladezeiten und eine reduzierte, fokussierte User Experience auf Desktop und Smartphone.",
+      "Zeitgesteuerte GitHub Actions Pipelines aggregieren, validieren und veröffentlichen Daten-Updates vollautomatisch auf globales Edge-Hosting – ein Beispiel dafür, wie durchdachte CI/CD-Architektur klassische Backend-Komplexität ersetzt."
+     ],
+     learnings: [
+      {
+       title: "Architektonische Einfachheit schlägt Over-Engineering",
+       body: "Der Ersatz eines dauerhaft laufenden Applikationsservers durch deterministische Build-Pipelines eliminiert Hosting-Kosten, Sicherheits-Patching und Datenbank-Engpässe."
+      },
+      {
+       title: "Typsicheres Frontend-State-Management",
+       body: "Strikte TypeScript-Modelle von der API-Validierung bis zum lokalen UI-State verhindern Laufzeitfehler und machen Erweiterungen kalkulierbar."
+      },
+      {
+       title: "Präzision in Mikro-Interaktionen",
+       body: "Bei direkt nutzerorientierten Webprodukten entscheiden Typografie, responsive Proportionen und unmittelbares visuelles Feedback maßgeblich über die wahrgenommene Qualität."
+      }
+     ]
+    }
+   }
+  ];
+  // 5. THEME & LANGUAGE CONTROLLERS
+  function applyTheme(theme) {
+   currentTheme = theme;
+   document.documentElement.setAttribute('data-theme', theme);
+   localStorage.setItem('ts_theme', theme);
+   const sunIcon = document.getElementById('icon-sun');
+   const moonIcon = document.getElementById('icon-moon');
+   if (sunIcon && moonIcon) {
+    if (theme === 'dark') {
+     sunIcon.classList.remove('hidden');
+     moonIcon.classList.add('hidden');
+    } else {
+     sunIcon.classList.add('hidden');
+     moonIcon.classList.remove('hidden');
+    }
+   }
+  }
+  function toggleTheme() {
+   applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  }
+  function setLanguage(lang) {
+   currentLang = lang;
+   localStorage.setItem('ts_lang', lang);
+   document.documentElement.setAttribute('lang', lang);
+   document.title = lang === 'de'
+    ? 'Thomas Simhofer (tsimhofer) — Software Engineering & .NET Systemarchitektur'
+    : 'Thomas Simhofer (tsimhofer) — Software Engineering & .NET Systems Architecture';
+   const metaDesc = document.querySelector('meta[name="description"]');
+   if (metaDesc) {
+    metaDesc.setAttribute('content', lang === 'de'
+     ? 'Thomas Simhofer (tsimhofer) — Software Engineer & Systemarchitekt aus Österreich, spezialisiert auf .NET 8, C#, Blazor, Full Stack Web, Industrial HMI und Agentic Engineering.'
+     : 'Thomas Simhofer (tsimhofer) — Software Engineer & Systems Architect based in Austria specializing in .NET 8, C#, Blazor, Full Stack Web, Industrial HMI, and Agentic Engineering.');
+   }
+   const btnEn = document.getElementById('btn-lang-en');
+   const btnDe = document.getElementById('btn-lang-de');
+   if (btnEn && btnDe) {
+    btnEn.classList.toggle('active', lang === 'en');
+    btnDe.classList.toggle('active', lang === 'de');
+   }
+   const t = i18n[lang];
+   const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+   };
+   setText('nav-welcome', t.navWelcome);
+   setText('nav-showcase', t.navShowcase);
+   setText('nav-contact', t.navContact);
+   setText('welcome-kicker', t.welcomeKicker);
+   setText('welcome-headline', t.welcomeHeadline);
+   setText('welcome-copy', t.welcomeCopy);
+   setText('pillar-1-title', t.pillar1Title);
+   setText('pillar-2-title', t.pillar2Title);
+   setText('pillar-3-title', t.pillar3Title);
+   setText('showcase-kicker', t.showcaseKicker);
+   setText('showcase-title', t.showcaseTitle);
+   setText('showcase-hint', t.showcaseHint);
+   setText('subpage-back-text', t.subpageBack);
+   setText('contact-kicker', t.contactKicker);
+   setText('contact-headline', t.contactHeadline);
+   setText('contact-subtext', t.contactSubtext);
+   setText('contact-email-kicker', t.contactEmailKicker);
+   setText('copy-status-pill', t.copyDefault);
+   setText('footer-privacy-link', t.footerPrivacy);
+   renderShowcaseGrid();
+   if (activeProjectId) {
+    renderProjectSubpage(activeProjectId);
+   }
+  }
+  // 6. SHOWCASE STICKY SPLIT-SCREEN SLIDES & SUBPAGE MODAL RENDERING
+  let activeShowcaseIdx = 0;
+  function renderShowcaseGrid() {
+   const slidesContainer = document.getElementById('showcase-slides');
+   const pillsContainer = document.getElementById('showcase-quick-pills');
+   if (!slidesContainer) return;
+   const t = i18n[currentLang];
+   if (pillsContainer) {
+    pillsContainer.innerHTML = projects.map((proj, idx) => `
+     <button
+      type="button"
+      onclick="scrollToProjectSlide(${idx})"
+      data-proj-pill="${idx}"
+      class="${idx === activeShowcaseIdx ? 'theme-pill-active' : 'theme-pill'} rounded-full px-3.5 py-1.5 font-mono font-bold text-[11px] tracking-[0.12em] cursor-pointer transition-all"
+     >
+      ${proj.num}
+     </button>
+    `).join('');
+   }
+   slidesContainer.innerHTML = projects.map((proj, idx) => {
+    const loc = proj[currentLang];
+    const firstLearning = loc.learnings[0];
+    return `
+     <div
+      id="project-slide-${idx}"
+      data-section="showcase"
+      data-project-idx="${idx}"
+      class="snap-frame py-20 sm:py-24"
+     >
+      <div class="lg:hidden mb-4 flex items-center justify-between">
+       <span class="font-mono font-bold text-[11px] uppercase tracking-[0.18em] theme-muted">
+        ${t.showcaseKicker}
+       </span>
+       <span class="font-mono font-bold text-xs theme-fg">
+        ${proj.num} / 05
+       </span>
+      </div>
+      <article
+       onclick="openProjectSubpage('${proj.id}')"
+       role="button"
+       tabindex="0"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectSubpage('${proj.id}');}"
+       class="theme-card-interactive rounded-3xl p-7 sm:p-10 lg:p-12 cursor-pointer flex flex-col justify-between group w-full"
+      >
+       <div>
+        <div class="flex items-center justify-between font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted mb-4">
+         <span>${proj.num} — ${loc.domain}</span>
+         <span class="transition-transform duration-300 group-hover:translate-x-1.5 theme-fg text-base">→</span>
+        </div>
+        <h3 class="font-sans font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-[-0.03em] leading-[1.1] theme-fg mb-4">
+         ${loc.title}
+        </h3>
+        <p class="font-sans font-medium text-sm sm:text-base lg:text-lg theme-subtle leading-relaxed mb-6">
+         ${loc.summary}
+        </p>
+        <div class="theme-card-inner rounded-2xl p-4 sm:p-5 mb-6">
+         <div class="font-mono font-bold text-[10px] uppercase tracking-[0.16em] theme-muted mb-1">
+          ${t.subpageTaughtTitle} / 01
+         </div>
+         <div class="font-sans font-bold text-xs sm:text-sm theme-fg">
+          ${firstLearning.title}
+         </div>
+        </div>
+       </div>
+       <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+         ${proj.stack.map(tag => `
+          <span class="theme-pill rounded-full px-3 py-1 font-mono font-semibold text-[11px] tracking-tight">
+           ${tag}
+          </span>
+         `).join('')}
+        </div>
+        <span class="font-mono font-bold text-xs uppercase tracking-[0.14em] theme-fg opacity-80 group-hover:opacity-100">
+         ${t.cardReadMore}
+        </span>
+       </div>
+      </article>
+     </div>
+    `;
+   }).join('');
+   updateShowcaseStickyMeta(activeShowcaseIdx);
+   initSnapObserver();
+  }
+  function updateShowcaseStickyMeta(idx) {
+   activeShowcaseIdx = idx;
+   const proj = projects[idx];
+   if (!proj) return;
+   const loc = proj[currentLang];
+   const numEl = document.getElementById('showcase-active-num');
+   const domEl = document.getElementById('showcase-active-domain');
+   const titEl = document.getElementById('showcase-active-title');
+   const barEl = document.getElementById('showcase-progress-bar');
+   if (numEl) numEl.textContent = proj.num;
+   if (domEl) domEl.textContent = loc.domain;
+   if (titEl) titEl.textContent = loc.title;
+   if (barEl) barEl.style.width = `${((idx + 1) / projects.length) * 100}%`;
+   document.querySelectorAll('[data-proj-pill]').forEach(btn => {
+    const bIdx = parseInt(btn.getAttribute('data-proj-pill'), 10);
+    if (bIdx === idx) {
+     btn.classList.remove('theme-pill');
+     btn.classList.add('theme-pill-active');
+    } else {
+     btn.classList.remove('theme-pill-active');
+     btn.classList.add('theme-pill');
+    }
+   });
+  }
+  function scrollToProjectSlide(idx) {
+   closeProjectSubpage();
+   closeLegalModal();
+   const slide = document.getElementById(`project-slide-${idx}`);
+   if (slide) {
+    slide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   }
+  }
+  function renderProjectSubpage(projectId) {
+   const idx = projects.findIndex(p => p.id === projectId);
+   if (idx === -1) return;
+   const proj = projects[idx];
+   const loc = proj[currentLang];
+   const nextProj = projects[(idx + 1) % projects.length];
+   const nextLoc = nextProj[currentLang];
+   const t = i18n[currentLang];
+   const body = document.getElementById('subpage-body');
+   if (!body) return;
+   body.innerHTML = `
+    <div class="mb-12 sm:mb-16">
+     <div class="font-mono font-bold text-xs uppercase tracking-[0.18em] theme-muted mb-3">
+      ${proj.num} / ${loc.domain}
+     </div>
+     <h1 class="font-sans font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-[-0.035em] leading-[1.05] theme-fg mb-8">
+      ${loc.title}
+     </h1>
+     <div class="grid grid-cols-12 gap-6 theme-card rounded-2xl p-6 sm:p-8">
+      <div class="col-span-12 sm:col-span-4">
+       <div class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-1">${t.subpageRoleLabel}</div>
+       <div class="font-sans font-extrabold text-base sm:text-lg theme-fg">${loc.role}</div>
+      </div>
+      <div class="col-span-12 sm:col-span-8">
+       <div class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-2">${t.subpageStackLabel}</div>
+       <div class="flex flex-wrap gap-2">
+        ${proj.stack.map(s => `<span class="theme-pill rounded-full px-3 py-1 font-mono font-bold text-xs theme-fg">${s}</span>`).join('')}
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="grid grid-cols-12 gap-y-6 lg:gap-x-12 mb-16 sm:mb-20">
+     <div class="col-span-12 lg:col-span-4">
+      <h2 class="font-sans font-extrabold text-xl sm:text-2xl tracking-[-0.02em] theme-fg">
+       ${t.subpageOverviewTitle}
+      </h2>
+     </div>
+     <div class="col-span-12 lg:col-span-8 space-y-4 font-sans font-medium text-base sm:text-lg leading-[1.7] theme-subtle">
+      ${loc.overview.map(p => `<p>${p}</p>`).join('')}
+     </div>
+    </div>
+    <div class="grid grid-cols-12 gap-y-6 lg:gap-x-12 mb-16 sm:mb-20">
+     <div class="col-span-12 lg:col-span-4">
+      <h2 class="font-sans font-extrabold text-xl sm:text-2xl tracking-[-0.02em] theme-fg">
+       ${t.subpageTaughtTitle}
+      </h2>
+     </div>
+     <div class="col-span-12 lg:col-span-8 space-y-4">
+      ${loc.learnings.map((item, lIdx) => `
+       <div class="theme-card rounded-2xl p-6 sm:p-8">
+        <div class="font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-2">
+         ${t.subpageTakeawayLabel} 0${lIdx + 1}
+        </div>
+        <h3 class="font-sans font-extrabold text-lg sm:text-xl tracking-[-0.02em] theme-fg mb-2">
+         ${item.title}
+        </h3>
+        <p class="font-sans font-normal text-sm sm:text-base leading-[1.65] theme-subtle">
+         ${item.body}
+        </p>
+       </div>
+      `).join('')}
+     </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+     <button
+      type="button"
+      onclick="closeProjectSubpage()"
+      class="font-mono font-bold text-xs uppercase tracking-[0.16em] theme-muted hover:opacity-100 cursor-pointer"
+     >
+      ← ${t.subpageBack}
+     </button>
+     <button
+      type="button"
+      onclick="openProjectSubpage('${nextProj.id}')"
+      class="group text-left sm:text-right cursor-pointer"
+     >
+      <span class="block font-mono font-bold text-[11px] uppercase tracking-[0.16em] theme-muted mb-1">
+       ${t.subpageNextLabel}
+      </span>
+      <span class="font-sans font-extrabold text-xl sm:text-2xl theme-fg group-hover:opacity-80">
+       ${nextLoc.title}
+      </span>
+     </button>
+    </div>
+   `;
+  }
+  function openProjectSubpage(projectId) {
+   activeProjectId = projectId;
+   renderProjectSubpage(projectId);
+   const drawer = document.getElementById('project-subpage');
+   if (drawer) {
+    drawer.classList.remove('drawer-closed');
+    drawer.classList.add('drawer-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    drawer.scrollTop = 0;
+   }
+  }
+  function closeProjectSubpage() {
+   activeProjectId = null;
+   const drawer = document.getElementById('project-subpage');
+   if (drawer) {
+    drawer.classList.remove('drawer-open');
+    drawer.classList.add('drawer-closed');
+    drawer.setAttribute('aria-hidden', 'true');
+   }
+  }
+  // 7. SNAP SCROLLER NAVIGATION & ACTIVE SECTION TRACKING
+  function scrollToSnapSection(sectionId) {
+   closeProjectSubpage();
+   closeLegalModal();
+   if (sectionId === 'showcase') {
+    const firstSlide = document.getElementById('project-slide-0') || document.getElementById('showcase');
+    if (firstSlide) firstSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+   }
+   const target = document.getElementById(sectionId);
+   if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   }
+  }
+  function initSnapObserver() {
+   const scroller = document.getElementById('snap-scroller');
+   if (!scroller) return;
+   if (snapObserver) {
+    snapObserver.disconnect();
+   }
+   snapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+     if (entry.target.id === 'welcome') {
+      const portrait = entry.target.querySelector('.editorial-portrait');
+      if (portrait) {
+       portrait.classList.toggle('in-view', entry.isIntersecting && entry.intersectionRatio >= 0.45);
+      }
+     }
+     if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+      const secId = entry.target.getAttribute('data-section');
+      updateActiveIndicators(secId);
+      const projIdxAttr = entry.target.getAttribute('data-project-idx');
+      if (projIdxAttr !== null) {
+       updateShowcaseStickyMeta(parseInt(projIdxAttr, 10));
+      }
+     }
+    });
+   }, {
+    root: scroller,
+    threshold: [0.15, 0.45, 0.55]
+   });
+   document.querySelectorAll('.snap-frame').forEach(sec => snapObserver.observe(sec));
+  }
+  function updateActiveIndicators(activeId) {
+   document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-nav') === activeId);
+   });
+   document.querySelectorAll('.snap-dot').forEach(dot => {
+    dot.classList.toggle('active', dot.getAttribute('data-dot') === activeId);
+   });
+   const portrait = document.querySelector('.editorial-portrait');
+   if (portrait) {
+    portrait.classList.toggle('in-view', activeId === 'welcome');
+   }
+  }
+  // 8. CLIPBOARD & LEGAL MODAL HELPERS
+  function copyEmailToClipboard() {
+   const temp = document.createElement('textarea');
+   temp.value = 'contact@tsimhofer.com';
+   document.body.appendChild(temp);
+   temp.select();
+   document.execCommand('copy');
+   document.body.removeChild(temp);
+   const pill = document.getElementById('copy-status-pill');
+   if (pill) {
+    pill.textContent = i18n[currentLang].copySuccess;
+    pill.classList.add('theme-pill-active');
+    setTimeout(() => {
+     pill.textContent = i18n[currentLang].copyDefault;
+     pill.classList.remove('theme-pill-active');
+    }, 2000);
+   }
+  }
+  function openLegalModal(type) {
+   const modal = document.getElementById('legal-modal');
+   const body = document.getElementById('legal-modal-body');
+   if (!modal || !body) return;
+   if (type === 'impressum') {
+    body.innerHTML = `
+     <h3 class="font-sans font-extrabold text-2xl sm:text-3xl theme-fg">Impressum (§ 5 ECG)</h3>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Name:</strong> Thomas Simhofer</p>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Location:</strong> 3161 St. Veit an der Gölsen, Lower Austria, Austria</p>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Email:</strong> contact@tsimhofer.com</p>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed"><strong class="theme-fg">Purpose:</strong> Personal software engineering portfolio and architectural showcase.</p>
+    `;
+   } else {
+    body.innerHTML = `
+     <h3 class="font-sans font-extrabold text-2xl sm:text-3xl theme-fg">Privacy Notice (DSGVO / GDPR)</h3>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed">This website operates with zero tracking cookies, zero analytics scripts, and zero third-party behavioral profiling.</p>
+     <p class="font-sans text-sm sm:text-base theme-subtle leading-relaxed">Theme and language preferences are stored strictly locally in your browser via localStorage.</p>
+    `;
+   }
+   modal.classList.remove('drawer-closed');
+   modal.classList.add('drawer-open');
+   modal.setAttribute('aria-hidden', 'false');
+  }
+  function closeLegalModal() {
+   const modal = document.getElementById('legal-modal');
+   if (modal) {
+    modal.classList.remove('drawer-open');
+    modal.classList.add('drawer-closed');
+    modal.setAttribute('aria-hidden', 'true');
+   }
+  }
+  // 9. 3D INTERACTIVE VECTOR FIELD (FULL-PAGE HEX HONEYCOMB + SPECULAR RIM)
+  function initVectorField() {
+   const canvas = document.getElementById('vector-field-canvas');
+   if (!canvas) return;
+   const ctx = canvas.getContext('2d', { alpha: true });
+   let width = 0;
+   let height = 0;
+   let dpr = 1;
+   // Packed SOA (Structure of Arrays) for zero-GC 60/120fps 3D simulation
+   let count = 0;
+   let posX = new Float32Array(0);
+   let posY = new Float32Array(0);
+   let dirX = new Float32Array(0);
+   let dirY = new Float32Array(0);
+   let dirZ = new Float32Array(0);
+   let velX = new Float32Array(0);
+   let velY = new Float32Array(0);
+   let velZ = new Float32Array(0);
+   let phase = new Float32Array(0);
+   let weight = new Float32Array(0);
+   // Mouse 3D target with lagged drag follower
+   let rawMouseX = window.innerWidth * 0.64;
+   let rawMouseY = window.innerHeight * 0.44;
+   let cursorX = rawMouseX;
+   let cursorY = rawMouseY;
+   let lastMouseMoveTime = 0;
+   // Deterministic PRNG (Mulberry32)
+   function createPRNG(seed) {
+    let a = seed >>> 0;
+    return function () {
+     a |= 0;
+     a = (a + 0x6D2B79F5) | 0;
+     let t = Math.imul(a ^ (a >>> 15), 1 | a);
+     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+   }
+   // Smooth 2D harmonic field in [-1, 1]
+   function organicWave(nx, ny) {
+    const n1 = Math.sin(nx * 3.8 + Math.cos(ny * 3.2) * 1.4);
+    const n2 = Math.cos(ny * 3.5 - Math.sin(nx * 2.9) * 1.3);
+    return (n1 + n2) * 0.5;
+   }
+   // Full-bleed viewport bounds with subtle edge margin
+   function isValidPoint(px, py) {
+    return px >= 14 && px <= width - 14 && py >= 14 && py <= height - 14;
+   }
+   function rebuildGrid() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const tempX = [];
+    const tempY = [];
+    const tempW = [];
+    const rand = createPRNG(90210);
+    // Full-Page Honeycomb Tessellation with Organic Veins
+    const spacing = width < 768 ? 32 : 25;
+    const rowH = spacing * Math.sqrt(3) * 0.5;
+    const rows = Math.ceil(height / rowH) + 1;
+    const cols = Math.ceil(width / spacing) + 1;
+    for (let r = 0; r < rows; r++) {
+     const pyBase = r * rowH;
+     const xOffset = (r % 2) * (spacing * 0.5);
+     for (let c = 0; c < cols; c++) {
+      const pxBase = c * spacing + xOffset;
+      const px = pxBase + (rand() - 0.5) * 2.2;
+      const py = pyBase + (rand() - 0.5) * 2.2;
+      if (!isValidPoint(px, py)) continue;
+      const nx = px / width;
+      const ny = py / height;
+      // Smooth cellular veins across the whole page
+      const field = organicWave(nx * 2.2, ny * 2.2);
+      const distFromVein = Math.abs(field);
+      if (distFromVein > 0.14) {
+       const w = Math.max(0.36, Math.min(1.0, 0.38 + distFromVein * 0.85));
+       tempX.push(px);
+       tempY.push(py);
+       tempW.push(w);
+      }
+     }
+    }
+    count = tempX.length;
+    posX = new Float32Array(count);
+    posY = new Float32Array(count);
+    dirX = new Float32Array(count);
+    dirY = new Float32Array(count);
+    dirZ = new Float32Array(count);
+    velX = new Float32Array(count);
+    velY = new Float32Array(count);
+    velZ = new Float32Array(count);
+    phase = new Float32Array(count);
+    weight = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+     posX[i] = tempX[i];
+     posY[i] = tempY[i];
+     dirX[i] = 0;
+     dirY[i] = 0;
+     dirZ[i] = 1;
+     phase[i] = tempX[i] * 0.005 + tempY[i] * 0.005;
+     weight[i] = tempW[i];
+    }
+   }
+   window.addEventListener('resize', rebuildGrid, { passive: true });
+   window.addEventListener('pointermove', (e) => {
+    rawMouseX = e.clientX;
+    rawMouseY = e.clientY;
+    lastMouseMoveTime = performance.now();
+   }, { passive: true });
+   rebuildGrid();
+   function renderFrame(now) {
+    const t = now * 0.001;
+    const isDark = currentTheme === 'dark';
+    // If mouse hasn't moved recently, gently drift a virtual 3D attractor through the formation
+    const idleBlend = Math.min(1, Math.max(0, (now - lastMouseMoveTime - 2500) / 3500));
+    const idleTargetX = width * (0.60 + 0.20 * Math.cos(t * 0.34));
+    const idleTargetY = height * (0.45 + 0.18 * Math.sin(t * 0.46));
+    const targetX = rawMouseX * (1 - idleBlend) + idleTargetX * idleBlend;
+    const targetY = rawMouseY * (1 - idleBlend) + idleTargetY * idleBlend;
+    // Smooth viscous cursor follower
+    cursorX += (targetX - cursorX) * 0.105;
+    cursorY += (targetY - cursorY) * 0.105;
+    // 3D height of the cursor target above the XY plane
+    const cursorZ = 145;
+    const cursorZSq = cursorZ * cursorZ;
+    ctx.clearRect(0, 0, width, height);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    const baseMonoRGB = isDark ? '245, 245, 247' : '12, 12, 16';
+    for (let i = 0; i < count; i++) {
+     const x = posX[i];
+     const y = posY[i];
+     const ph = phase[i];
+     const w = weight[i];
+     // Vector from node (x, y, 0) to 3D cursor (cursorX, cursorY, cursorZ)
+     const dx = cursorX - x;
+     const dy = cursorY - y;
+     const dist2D_Sq = dx * dx + dy * dy;
+     const dist3D = Math.sqrt(dist2D_Sq + cursorZSq);
+     const invDist3D = 1 / dist3D;
+     // Gentle organic 3D current so formations breathe together
+     const waveX = Math.cos(t * 0.68 + ph) * 0.20;
+     const waveY = Math.sin(t * 0.56 + ph * 1.15) * 0.20;
+     // Proximity weight (1 near cursor, fading smoothly over ~400px radius)
+     const prox = Math.exp(-dist2D_Sq * 0.0000048);
+     const pullWeight = 0.28 + 0.72 * prox;
+     // Desired 3D target unit vector
+     let tx = (dx * invDist3D) * pullWeight + waveX * (1 - prox * 0.65);
+     let ty = (dy * invDist3D) * pullWeight + waveY * (1 - prox * 0.65);
+     let tz = (cursorZ * invDist3D) * (0.58 + 0.42 * (1 - prox));
+     const invT = 1 / Math.sqrt(tx * tx + ty * ty + tz * tz);
+     tx *= invT;
+     ty *= invT;
+     tz *= invT;
+     // Viscous 3D rotational drag
+     const stiffness = (0.013 + 0.036 * prox) * (0.75 + 0.25 * w);
+     const damping = 0.88 - 0.04 * prox;
+     let vx = (velX[i] + (tx - dirX[i]) * stiffness) * damping;
+     let vy = (velY[i] + (ty - dirY[i]) * stiffness) * damping;
+     let vz = (velZ[i] + (tz - dirZ[i]) * stiffness) * damping;
+     let nx = dirX[i] + vx;
+     let ny = dirY[i] + vy;
+     let nz = dirZ[i] + vz;
+     const invN = 1 / Math.sqrt(nx * nx + ny * ny + nz * nz);
+     nx *= invN;
+     ny *= invN;
+     nz *= invN;
+     dirX[i] = nx;
+     dirY[i] = ny;
+     dirZ[i] = nz;
+     velX[i] = vx;
+     velY[i] = vy;
+     velZ[i] = vz;
+     // 2D projected tilt magnitude (foreshortening sin(theta))
+     const tiltMag = Math.sqrt(nx * nx + ny * ny);
+     const invTilt = tiltMag > 0.0001 ? 1 / tiltMag : 0;
+     const ux = tiltMag > 0.0001 ? nx * invTilt : 1;
+     const uy = tiltMag > 0.0001 ? ny * invTilt : 0;
+     const rx = -uy;
+     const ry = ux;
+     // Scale each primitive by its cluster weight (smoothly tapered toward outer edge)
+     const scale = 0.66 + 0.34 * w;
+     // STYLE 3 COLOR (REFINED SUBTLE VISIBILITY): 3D Micro-Blades with Warm Specular Rim Glint
+     const len = 7.2 * scale;
+     const halfW = 1.48 * scale * (0.36 + 0.64 * nz);
+     const lightAlign = Math.max(0, nx * (dx * invDist3D) + ny * (dy * invDist3D) + nz * (cursorZ * invDist3D));
+     const specPower = Math.pow(lightAlign, 8);
+     const illum = prox * (0.28 * lightAlign + 0.72 * specPower) * (0.45 + 0.55 * w);
+     const tipX = x + nx * len;
+     const tipY = y + ny * len;
+     const tailX = x - nx * (len * 0.45);
+     const tailY = y - ny * (len * 0.45);
+     if (illum > 0.02) {
+      const r = isDark ? Math.round(182 + 68 * specPower) : Math.round(58 - 38 * specPower);
+      const g = isDark ? Math.round(174 + 68 * specPower) : Math.round(52 - 32 * specPower);
+      const b = isDark ? Math.round(160 + 72 * specPower) : Math.round(46 - 26 * specPower);
+      const strokeAlpha = Math.min(0.32, (isDark ? 0.036 : 0.048) * w + illum * 0.28);
+      const fillAlpha = Math.min(0.085, illum * 0.075);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${fillAlpha.toFixed(3)})`;
+      ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${strokeAlpha.toFixed(3)})`;
+      ctx.lineWidth = 0.68;
+      ctx.beginPath();
+      ctx.moveTo(tipX, tipY);
+      ctx.lineTo(x + rx * halfW, y + ry * halfW);
+      ctx.lineTo(tailX, tailY);
+      ctx.lineTo(x - rx * halfW, y - ry * halfW);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+     } else {
+      const restAlpha = (isDark ? 0.035 : 0.046) * w;
+      ctx.strokeStyle = `rgba(${baseMonoRGB}, ${restAlpha.toFixed(3)})`;
+      ctx.lineWidth = 0.60;
+      ctx.beginPath();
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(tipX, tipY);
+      ctx.stroke();
+     }
+    }
+    requestAnimationFrame(renderFrame);
+   }
+   requestAnimationFrame(renderFrame);
+  }
+  window.addEventListener('keydown', (e) => {
+   if (e.key === 'Escape') {
+    closeProjectSubpage();
+    closeLegalModal();
+   }
+  });
+  // INITIALIZE ON DOM READY / WINDOW LOAD
+  function initPortfolioApp() {
+   applyTheme(currentTheme);
+   setLanguage(currentLang);
+   initSnapObserver();
+   startKeywordFlipper();
+   initVectorField();
+  }
+  if (document.readyState === 'loading') {
+   document.addEventListener('DOMContentLoaded', initPortfolioApp);
+  } else {
+   initPortfolioApp();
+  }
+ </script>
+</body>
+</html>
