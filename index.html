@@ -377,17 +377,48 @@
       display: block;
     }
 
-    .vec-mode-btn {
-      opacity: 0.45;
-      transition: all 0.2s ease;
+    /* Horizontally Collapsible Mobile Header Menu */
+    #header-brand,
+    #header-nav-tray {
+      transition: max-width 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
     }
-    .vec-mode-btn:hover {
-      opacity: 0.85;
+    @media (max-width: 639px) {
+      #header-brand {
+        max-width: 140px;
+        opacity: 1;
+        overflow: hidden;
+      }
+      #main-header.menu-open #header-brand {
+        max-width: 0px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      #header-nav-tray {
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate3d(12px, 0, 0);
+      }
+      #main-header.menu-open #header-nav-tray {
+        max-width: 260px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+      }
     }
-    .vec-mode-btn.active {
-      opacity: 1;
-      background-color: var(--pill-active-bg);
-      color: var(--pill-active-fg);
+    .menu-line {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      transform-origin: center;
+    }
+    #main-header.menu-open .menu-line-1 {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+    #main-header.menu-open .menu-line-2 {
+      transform: translateY(-3.5px) rotate(-45deg);
     }
   </style>
 </head>
@@ -396,23 +427,24 @@
   <canvas id="vector-field-canvas" aria-hidden="true"></canvas>
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-30 backdrop-blur-md" style="background-color: var(--header-bg);">
-    <div class="max-w-[1360px] mx-auto px-6 sm:px-12 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-30 backdrop-blur-md" style="background-color: var(--header-bg);">
+    <div class="max-w-[1360px] mx-auto px-5 sm:px-12 lg:px-16 h-16 sm:h-20 flex items-center justify-between gap-2">
       <button
         type="button"
+        id="header-brand"
         onclick="scrollToSnapSection('hero')"
-        class="font-sans font-extrabold text-base sm:text-lg tracking-[-0.04em] theme-fg cursor-pointer hover:opacity-75 transition-opacity"
+        class="font-sans font-extrabold text-base sm:text-lg tracking-[-0.04em] theme-fg cursor-pointer hover:opacity-75 transition-opacity shrink-0"
       >
         tsimhofer
       </button>
 
-      <nav class="flex items-center gap-6 sm:gap-10 font-sans font-bold text-xs sm:text-sm tracking-tight theme-fg">
+      <nav id="header-nav-tray" class="flex items-center gap-4 sm:gap-10 font-sans font-bold text-xs sm:text-sm tracking-tight theme-fg">
         <button type="button" onclick="scrollToSnapSection('welcome')" data-nav="welcome" class="nav-item cursor-pointer" id="nav-welcome">Welcome</button>
         <button type="button" onclick="scrollToSnapSection('showcase')" data-nav="showcase" class="nav-item cursor-pointer" id="nav-showcase">Showcase</button>
         <button type="button" onclick="scrollToSnapSection('contact')" data-nav="contact" class="nav-item cursor-pointer" id="nav-contact">Contact</button>
       </nav>
 
-      <div class="flex items-center gap-4 sm:gap-6">
+      <div class="flex items-center gap-3 sm:gap-6 shrink-0 ml-auto sm:ml-0">
         <div class="flex items-center gap-1.5 font-mono font-semibold text-[11px] tracking-[0.14em] uppercase theme-fg select-none" role="group" aria-label="Language Switcher">
           <button type="button" onclick="setLanguage('en')" id="btn-lang-en" class="lang-btn active cursor-pointer">EN</button>
           <span class="opacity-20">/</span>
@@ -439,6 +471,20 @@
           </svg>
           <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" class="stroke-current fill-none hidden" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          onclick="toggleMobileMenu()"
+          id="btn-nav-toggle"
+          aria-label="Toggle Navigation Menu"
+          aria-expanded="false"
+          class="sm:hidden theme-icon-toggle theme-fg p-1.5 cursor-pointer flex items-center justify-center"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" class="stroke-current fill-none" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="8.5" x2="20" y2="8.5" class="menu-line menu-line-1"></line>
+            <line x1="4" y1="15.5" x2="20" y2="15.5" class="menu-line menu-line-2"></line>
           </svg>
         </button>
       </div>
@@ -1461,7 +1507,17 @@
       }
     }
 
+    function toggleMobileMenu(forceState) {
+      const header = document.getElementById('main-header');
+      const btn = document.getElementById('btn-nav-toggle');
+      if (!header) return;
+      const isOpen = typeof forceState === 'boolean' ? forceState : !header.classList.contains('menu-open');
+      header.classList.toggle('menu-open', isOpen);
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
     function scrollToSnapSection(sectionId) {
+      toggleMobileMenu(false);
       closeProjectSubpage();
       closeLegalModal();
       if (sectionId === 'showcase') {
